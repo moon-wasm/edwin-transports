@@ -182,7 +182,106 @@ def sync():
     except Exception as e:
         print(f"Erreur statistiques entreprise: {e}")
 
-    # 3. Gestion des convois avec RETRAIT DES CONVOIS PASSÉS
+    # 3. Agrégation de la flotte réelle basée uniquement sur les camions des chauffeurs
+    truck_specs_catalog = {
+        "Scania R": {
+            "title": "Scania R V8 Highline",
+            "category": "frigo",
+            "categories": ["frigo", "lourd"],
+            "badge": "V8 730 CH",
+            "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
+            "specs": {
+                "chassis": "4x2 & 6x4",
+                "power": "580 - 730 CH",
+                "transmission": "Opticruise 12+2",
+                "specialty": "Frigo & Fret Express"
+            }
+        },
+        "Scania S": {
+            "title": "Scania S Next Generation",
+            "category": "lourd",
+            "categories": ["lourd", "frigo", "benne"],
+            "badge": "730 CH V8",
+            "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
+            "specs": {
+                "chassis": "6x2 / 8x4",
+                "power": "650 - 730 CH",
+                "transmission": "Opticruise Retarder",
+                "specialty": "Porte-Char & Fret Spécialisé"
+            }
+        },
+        "Volvo FH4": {
+            "title": "Volvo FH4 Globetrotter XL",
+            "category": "plateau",
+            "categories": ["plateau", "lourd"],
+            "badge": "750 CH",
+            "description": "L'étalon suédois de haute technologie, dédié aux convois sur plateau et au fret volumineux. Transmission I-Shift avec vitesses rampantes.",
+            "specs": {
+                "chassis": "6x4 Taglift",
+                "power": "540 - 750 CH",
+                "transmission": "I-Shift Dual Clutch",
+                "specialty": "Plateau & Convois Européens"
+            }
+        }
+    }
+
+    # Group drivers by truck model
+    trucks_grouped = {}
+    total_km_month = 0
+    total_deliveries_month = 0
+
+    for emp in employees:
+        t_name = emp.get("truck", "Non renseigné")
+        total_km_month += emp.get("km_month", 0)
+        total_deliveries_month += emp.get("deliveries_month", 0)
+        
+        if t_name not in trucks_grouped:
+            trucks_grouped[t_name] = {
+                "model": t_name,
+                "drivers": [],
+                "poles": set(),
+                "total_km": 0,
+                "total_km_month": 0
+            }
+        role_label = f"{emp['name']} (Fondateur)" if emp.get("is_owner") else emp["name"]
+        trucks_grouped[t_name]["drivers"].append(role_label)
+        if emp.get("pole"):
+            trucks_grouped[t_name]["poles"].add(emp["pole"])
+        trucks_grouped[t_name]["total_km"] += emp.get("km_all", 0)
+        trucks_grouped[t_name]["total_km_month"] += emp.get("km_month", 0)
+
+    fleet = []
+    for model_name, info in trucks_grouped.items():
+        catalog_info = truck_specs_catalog.get(model_name, {
+            "title": model_name,
+            "category": "lourd",
+            "categories": ["lourd"],
+            "badge": "Télémétrie Live",
+            "description": f"Camion officiel conduit par les chauffeurs d'Edwin Transports sur TrucksBook.",
+            "specs": {
+                "chassis": "6x4",
+                "power": "500+ CH",
+                "transmission": "Automatique",
+                "specialty": "Transport Général"
+            }
+        })
+        fleet.append({
+            "model": model_name,
+            "title": catalog_info["title"],
+            "category": catalog_info["category"],
+            "categories": catalog_info["categories"],
+            "badge": catalog_info["badge"],
+            "drivers": info["drivers"],
+            "drivers_count": len(info["drivers"]),
+            "poles": list(info["poles"]),
+            "description": catalog_info["description"],
+            "specs": catalog_info["specs"],
+            "total_km": info["total_km"],
+            "total_km_month": info["total_km_month"],
+            "is_official_driver_truck": True
+        })
+
+    # 4. Gestion des convois avec RETRAIT DES CONVOIS PASSÉS
     all_convoys = [
         {
             "id": "convoy-alpes-2026",
@@ -215,7 +314,6 @@ def sync():
     ]
 
     now_iso = now.isoformat()
-    # Retrait automatique des convois dont la date est passée
     upcoming_convoys = [c for c in all_convoys if c["date_iso"] >= now_iso]
 
     payload = {
@@ -229,10 +327,13 @@ def sync():
             "trucksbook_url": f"https://trucksbook.eu/company/{COMPANY_ID}",
             "total_km": total_km,
             "total_deliveries": total_deliveries,
+            "total_km_month": total_km_month,
+            "total_deliveries_month": total_deliveries_month,
             "total_drivers": len(employees),
             "no_damage_rate": 99.4,
             "founder": employees[0]["name"] if employees else "n3rox.off"
         },
+        "fleet": fleet,
         "drivers": employees,
         "upcoming_convoys": upcoming_convoys
     }

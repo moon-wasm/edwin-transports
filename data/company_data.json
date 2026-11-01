@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01 17:30:40",
+  "updated_at": "2026-11-01 17:35:38",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,10 +9,101 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
+    "total_km_month": 2275,
+    "total_deliveries_month": 3,
     "total_drivers": 6,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
   },
+  "fleet": [
+    {
+      "model": "Scania R",
+      "title": "Scania R V8 Highline",
+      "category": "frigo",
+      "categories": [
+        "frigo",
+        "lourd"
+      ],
+      "badge": "V8 730 CH",
+      "drivers": [
+        "n3rox.off (Fondateur)",
+        "Miam50"
+      ],
+      "drivers_count": 2,
+      "poles": [
+        "Polyvalent / Longue Distance",
+        "Transport Frigorifique"
+      ],
+      "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
+      "specs": {
+        "chassis": "4x2 & 6x4",
+        "power": "580 - 730 CH",
+        "transmission": "Opticruise 12+2",
+        "specialty": "Frigo & Fret Express"
+      },
+      "total_km": 21748,
+      "total_km_month": 1674,
+      "is_official_driver_truck": true
+    },
+    {
+      "model": "Scania S",
+      "title": "Scania S Next Generation",
+      "category": "lourd",
+      "categories": [
+        "lourd",
+        "frigo",
+        "benne"
+      ],
+      "badge": "730 CH V8",
+      "drivers": [
+        "romuald.lelerre",
+        "B R U X Y",
+        "Zenotoa"
+      ],
+      "drivers_count": 3,
+      "poles": [
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
+      ],
+      "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
+      "specs": {
+        "chassis": "6x2 / 8x4",
+        "power": "650 - 730 CH",
+        "transmission": "Opticruise Retarder",
+        "specialty": "Porte-Char & Fret Spécialisé"
+      },
+      "total_km": 59999,
+      "total_km_month": 0,
+      "is_official_driver_truck": true
+    },
+    {
+      "model": "Volvo FH4",
+      "title": "Volvo FH4 Globetrotter XL",
+      "category": "plateau",
+      "categories": [
+        "plateau",
+        "lourd"
+      ],
+      "badge": "750 CH",
+      "drivers": [
+        "Sora658"
+      ],
+      "drivers_count": 1,
+      "poles": [
+        "Transport sur Plateau"
+      ],
+      "description": "L'étalon suédois de haute technologie, dédié aux convois sur plateau et au fret volumineux. Transmission I-Shift avec vitesses rampantes.",
+      "specs": {
+        "chassis": "6x4 Taglift",
+        "power": "540 - 750 CH",
+        "transmission": "I-Shift Dual Clutch",
+        "specialty": "Plateau & Convois Européens"
+      },
+      "total_km": 48311,
+      "total_km_month": 601,
+      "is_official_driver_truck": true
+    }
+  ],
   "drivers": [
     {
       "id": 615376,
@@ -30,7 +121,7 @@
       "deliveries_all": 8,
       "km_month": 1674,
       "deliveries_month": 1,
-      "frequent_cargo": "Yoghurt",
+      "frequent_cargo": "Pears",
       "score": "100%",
       "last_online": "2026-11-01T01:34:03+01:00"
     },
@@ -42,7 +133,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Porte-Char & Convois Lourds",
+      "pole": "Polyvalent / Longue Distance",
       "is_owner": false,
       "km": 16111,
       "deliveries": 20,
@@ -50,7 +141,7 @@
       "deliveries_all": 20,
       "km_month": 0,
       "deliveries_month": 0,
-      "frequent_cargo": "Granite Cubes",
+      "frequent_cargo": "Logs",
       "score": "99.1%",
       "last_online": "2026-10-31T19:46:04+01:00"
     },
@@ -92,7 +183,7 @@
       "deliveries_month": 0,
       "frequent_cargo": "Cut Flowers",
       "score": "99.3%",
-      "last_online": "2026-11-01T17:30:16+01:00"
+      "last_online": "2026-11-01T17:35:31+01:00"
     },
     {
       "id": 604587,
@@ -132,7 +223,7 @@
       "deliveries_month": 2,
       "frequent_cargo": "Used Plastics",
       "score": "99.5%",
-      "last_online": "2026-11-01T17:30:00+01:00"
+      "last_online": "2026-11-01T17:35:17+01:00"
     }
   ],
   "upcoming_convoys": [

@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initRecruitmentModal();
   initConvoyRSVP();
   initLightbox();
-  initRankingPeriodToggle();
   
   // Chargement des données dynamiques (TrucksBook & Convois)
   loadLiveVTCData();
@@ -128,11 +127,10 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   3. Filtre de la Flotte
+   3. Filtre de la Flotte Réelle
    ========================================================================== */
 function initFleetFilter() {
   const filterButtons = document.querySelectorAll('.fleet-filter-btn');
-  const fleetCards = document.querySelectorAll('.fleet-card');
 
   if (!filterButtons.length) return;
 
@@ -147,8 +145,9 @@ function initFleetFilter() {
       btn.classList.add('bg-red-600', 'text-white', 'border-red-500');
 
       const filter = btn.getAttribute('data-filter');
+      const cards = document.querySelectorAll('.fleet-card');
 
-      fleetCards.forEach(card => {
+      cards.forEach(card => {
         const category = card.getAttribute('data-category');
         if (filter === 'all' || category === filter) {
           card.classList.remove('hidden');
@@ -162,7 +161,7 @@ function initFleetFilter() {
 }
 
 /* ==========================================================================
-   4. Chargement Dynamique des Données VTC (TrucksBook, Chauffeurs, Convois)
+   4. Chargement Dynamique des Données VTC (TrucksBook, Chauffeurs, Flotte, Convois)
    ========================================================================== */
 async function loadLiveVTCData(isAutoRefresh = false) {
   try {
@@ -171,12 +170,15 @@ async function loadLiveVTCData(isAutoRefresh = false) {
     const data = await res.json();
 
     updateStatisticsCounters(data.company);
+    if (data.fleet && data.fleet.length) {
+      renderRealFleet(data.fleet);
+    }
     renderDriversTable(data.drivers);
     renderConvoys(data.upcoming_convoys);
     updateSyncBadge(data.updated_at);
 
     if (isAutoRefresh) {
-      showToast('🔄 Synchronisation 1h effectuée : Chauffeurs, kilomètres et convois actualisés !', 'info');
+      showToast('🔄 Synchronisation 1h effectuée : Flotte, chauffeurs et convois actualisés !', 'info');
     }
   } catch (err) {
     console.warn('Fallback local pour données VTC:', err);
@@ -186,28 +188,33 @@ async function loadLiveVTCData(isAutoRefresh = false) {
 function updateStatisticsCounters(company) {
   if (!company) return;
 
-  const kmCounter = document.getElementById('stat-total-km');
+  const monthKmCounter = document.getElementById('stat-month-km');
+  const monthDelivCounter = document.getElementById('stat-month-deliveries');
+  const totalKmCounter = document.getElementById('stat-total-km');
   const driversCounter = document.getElementById('stat-total-drivers');
-  const deliveriesCounter = document.getElementById('stat-total-deliveries');
 
-  if (kmCounter) {
-    kmCounter.setAttribute('data-target', company.total_km);
-    animateCounter(kmCounter, company.total_km);
+  if (monthKmCounter && company.total_km_month !== undefined) {
+    monthKmCounter.setAttribute('data-target', company.total_km_month);
+    animateCounter(monthKmCounter, company.total_km_month);
   }
-  if (driversCounter) {
+  if (monthDelivCounter && company.total_deliveries_month !== undefined) {
+    monthDelivCounter.setAttribute('data-target', company.total_deliveries_month);
+    animateCounter(monthDelivCounter, company.total_deliveries_month);
+  }
+  if (totalKmCounter && company.total_km !== undefined) {
+    totalKmCounter.setAttribute('data-target', company.total_km);
+    animateCounter(totalKmCounter, company.total_km);
+  }
+  if (driversCounter && company.total_drivers !== undefined) {
     driversCounter.setAttribute('data-target', company.total_drivers);
     animateCounter(driversCounter, company.total_drivers);
-  }
-  if (deliveriesCounter) {
-    deliveriesCounter.setAttribute('data-target', company.total_deliveries);
-    animateCounter(deliveriesCounter, company.total_deliveries);
   }
 }
 
 function animateCounter(element, target) {
   let current = 0;
-  const duration = 1500;
-  const step = target / (duration / 25);
+  const duration = 1200;
+  const step = Math.max(1, target / (duration / 25));
   const timer = setInterval(() => {
     current += step;
     if (current >= target) {
@@ -219,45 +226,85 @@ function animateCounter(element, target) {
   }, 25);
 }
 
-let currentRankingPeriod = 'all';
-let cachedDriversData = [];
+/**
+ * Rendu dynamique de la flotte réelle utilisée par les chauffeurs (Aucun camion fictif)
+ */
+function renderRealFleet(fleet) {
+  const container = document.getElementById('fleet-cards-container');
+  if (!container || !fleet || !fleet.length) return;
 
-function initRankingPeriodToggle() {
-  const btnAll = document.getElementById('btn-period-all');
-  const btnMonth = document.getElementById('btn-period-month');
-  const periodBadge = document.getElementById('ranking-period-badge');
+  container.innerHTML = '';
 
-  if (!btnAll || !btnMonth) return;
+  fleet.forEach(item => {
+    const card = document.createElement('div');
+    const filterKey = item.model.toLowerCase().replace(/\s+/g, '-');
+    card.className = 'fleet-card card-glossy rounded-2xl overflow-hidden group border border-zinc-800/80 hover:border-red-600/50 transition-all';
+    card.setAttribute('data-category', filterKey);
 
-  btnAll.addEventListener('click', () => {
-    currentRankingPeriod = 'all';
-    btnAll.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white transition-all';
-    btnMonth.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-all';
-    if (periodBadge) periodBadge.textContent = 'Classement Général (Tout le temps)';
-    renderDriversTable(cachedDriversData, 'all');
+    const driversBadges = (item.drivers || []).map(dr => {
+      const isOwner = dr.includes('Fondateur');
+      return isOwner
+        ? `<span class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold">👑 ${escapeHTML(dr)}</span>`
+        : `<span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇫🇷 ${escapeHTML(dr)}</span>`;
+    }).join(' ');
+
+    const iconType = item.model.includes('Volvo') ? 'gauge' : (item.model.includes('S') ? 'shield' : 'truck');
+
+    card.innerHTML = `
+      <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+        <div class="text-center space-y-2">
+          <i data-lucide="${iconType}" class="w-20 h-20 ${item.model.includes('S') ? 'text-slate-200' : 'text-red-500'} mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
+          <span class="text-xs font-mono uppercase text-slate-300 tracking-widest block font-bold">${escapeHTML(item.title)}</span>
+          <span class="text-[10px] text-emerald-400 font-mono block">✓ Télémétrie TrucksBook Live</span>
+        </div>
+        <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow">${escapeHTML(item.badge)}</span>
+        <span class="absolute top-4 left-4 bg-zinc-950/80 border border-red-500/40 text-red-400 text-[10px] font-mono px-2 py-0.5 rounded">${item.drivers_count} Chauffeur${item.drivers_count > 1 ? 's' : ''}</span>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold font-display uppercase text-white">${escapeHTML(item.model)}</h3>
+          <span class="text-xs text-red-400 font-mono">${escapeHTML(item.specs.specialty || 'Flotte Edwin')}</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          ${escapeHTML(item.description)}
+        </p>
+        <div class="p-3 rounded-xl bg-zinc-950/70 border border-zinc-800/80 space-y-1">
+          <span class="text-[10px] uppercase font-mono text-zinc-500 block font-semibold">Chauffeurs attitrés TrucksBook :</span>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            ${driversBadges}
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+          <div><span class="text-zinc-500">Châssis :</span> ${escapeHTML(item.specs.chassis || 'Standard')}</div>
+          <div><span class="text-zinc-500">Puissance :</span> ${escapeHTML(item.specs.power || '730 CH')}</div>
+          <div><span class="text-zinc-500">Boîte :</span> ${escapeHTML(item.specs.transmission || 'Automatique')}</div>
+          <div><span class="text-zinc-500">Livrée :</span> Rouge Carmin / Noir</div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
   });
 
-  btnMonth.addEventListener('click', () => {
-    currentRankingPeriod = 'month';
-    btnMonth.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white transition-all';
-    btnAll.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-all';
-    if (periodBadge) periodBadge.textContent = 'Classement Mensuel (Mois en cours)';
-    renderDriversTable(cachedDriversData, 'month');
-  });
+  if (window.lucide) lucide.createIcons();
 }
 
-function renderDriversTable(drivers, period = currentRankingPeriod) {
+/**
+ * Rendu STRICTEMENT MENSUEL du classement des chauffeurs
+ * (Conforme à l'exigence : "je veux que mensuel pas tout le temps")
+ */
+function renderDriversTable(drivers) {
   const tbody = document.getElementById('drivers-table-body');
   if (!tbody || !drivers || !drivers.length) return;
 
-  cachedDriversData = drivers;
   tbody.innerHTML = '';
 
-  // Tri selon la période sélectionnée (Tout le temps vs Mensuel)
+  // Tri STRICTEMENT MENSUEL : km_month en premier, puis deliveries_month
   const sortedDrivers = [...drivers].sort((a, b) => {
-    const kmA = period === 'month' ? (a.km_month ?? a.km ?? 0) : (a.km_all ?? a.km ?? 0);
-    const kmB = period === 'month' ? (b.km_month ?? b.km ?? 0) : (b.km_all ?? b.km ?? 0);
-    return kmB - kmA;
+    const kmDiff = (b.km_month ?? 0) - (a.km_month ?? 0);
+    if (kmDiff !== 0) return kmDiff;
+    const delivDiff = (b.deliveries_month ?? 0) - (a.deliveries_month ?? 0);
+    if (delivDiff !== 0) return delivDiff;
+    return (b.km_all ?? 0) - (a.km_all ?? 0);
   });
 
   sortedDrivers.forEach((driver, idx) => {
@@ -274,13 +321,14 @@ function renderDriversTable(drivers, period = currentRankingPeriod) {
       ? '<span class="ml-2 px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold">DIR</span>'
       : '';
 
-    const kmValue = period === 'month' ? (driver.km_month ?? 0) : (driver.km_all ?? driver.km ?? 0);
-    const deliveriesValue = period === 'month' ? (driver.deliveries_month ?? 0) : (driver.deliveries_all ?? driver.deliveries ?? 0);
+    const kmMonth = driver.km_month ?? 0;
+    const delivMonth = driver.deliveries_month ?? 0;
+    const kmTotal = driver.km_all ?? driver.km ?? 0;
 
     tr.innerHTML = `
       <td class="py-4 px-4 font-bold ${idx === 0 ? 'text-amber-400' : 'text-slate-300'}">${rankBadge}</td>
       <td class="py-4 px-4 font-bold text-white flex items-center gap-2 font-sans">
-        <span class="w-2 h-2 rounded-full ${kmValue > 0 ? 'bg-emerald-500' : 'bg-zinc-500'}"></span>
+        <span class="w-2 h-2 rounded-full ${kmMonth > 0 ? 'bg-emerald-500 animate-pulse' : 'bg-zinc-600'}"></span>
         <span>${flag} ${escapeHTML(driver.name)}</span>
         ${roleBadge}
       </td>
@@ -296,9 +344,15 @@ function renderDriversTable(drivers, period = currentRankingPeriod) {
           ${escapeHTML(driver.pole || 'Transport')}
         </span>
       </td>
-      <td class="py-4 px-4 text-right font-bold text-white text-sm">${kmValue.toLocaleString('fr-FR')} km</td>
-      <td class="py-4 px-4 text-right text-emerald-400 font-bold">${deliveriesValue} missions</td>
-      <td class="py-4 px-4 text-right text-slate-400 font-mono text-[11px]">${escapeHTML(driver.frequent_cargo || 'Fret')}</td>
+      <td class="py-4 px-4 text-right font-bold text-red-400 text-sm font-mono">
+        ${kmMonth.toLocaleString('fr-FR')} km
+      </td>
+      <td class="py-4 px-4 text-right text-emerald-400 font-bold font-mono">
+        ${delivMonth} mission${delivMonth > 1 ? 's' : ''}
+      </td>
+      <td class="py-4 px-4 text-right text-slate-400 font-mono text-[11px]">
+        ${kmTotal.toLocaleString('fr-FR')} km
+      </td>
     `;
     tbody.appendChild(tr);
   });

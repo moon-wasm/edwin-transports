@@ -379,204 +379,129 @@
       
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
         <div>
-          <div class="et-badge mb-2">Matériel Roulant</div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="et-badge">Matériel Roulant des Chauffeurs</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 text-[10px] font-mono">100% TrucksBook</span>
+          </div>
           <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-wide">
-            La Flotte Officielle <span class="text-red-500">Edwin</span>
+            La Flotte Réelle <span class="text-red-500">Edwin Transports</span>
           </h2>
-          <p class="text-slate-400 text-sm">Chaque tracteur arbore la livrée officielle Noir Profond & Rouge Carmin.</p>
+          <p class="text-slate-400 text-sm">Les camions officiels actuellement conduits par les membres d'Edwin Transports sur TrucksBook (aucun véhicule artificiel).</p>
         </div>
 
-        <!-- Filter tabs -->
+        <!-- Filter tabs par modèle réel -->
         <div class="flex flex-wrap gap-2">
-          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white border border-red-500 transition-all" data-filter="all">Tous</button>
-          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="lourd">Porte-Char</button>
-          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="plateau">Plateau</button>
-          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="frigo">Frigo</button>
-          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="benne">Benne TP</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white border border-red-500 transition-all" data-filter="all">Tous les Camions</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="scania-r">Scania R</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="scania-s">Scania S</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="volvo-fh4">Volvo FH4</button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Real Fleet Cards Container (dynamiquement synchronisé et pré-rendu) -->
+      <div id="fleet-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Truck 1 -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="lourd">
+        <!-- Truck 1 : Scania R -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group border border-zinc-800/80 hover:border-red-600/50 transition-all" data-category="scania-r">
           <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
-            <!-- Truck SVG Badge Art -->
             <div class="text-center space-y-2">
               <i data-lucide="truck" class="w-20 h-20 text-red-500 mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Convoi Lourd</span>
+              <span class="text-xs font-mono uppercase text-slate-300 tracking-widest block font-bold">Scania R V8 Highline</span>
+              <span class="text-[10px] text-emerald-400 font-mono block">✓ Télémétrie TrucksBook Live</span>
             </div>
-            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">730 CH</span>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow">V8 730 CH</span>
+            <span class="absolute top-4 left-4 bg-zinc-950/80 border border-red-500/40 text-red-400 text-[10px] font-mono px-2 py-0.5 rounded">2 Chauffeurs</span>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">Scania S 730 V8</h3>
-              <span class="text-xs text-red-400 font-mono">Porte-Char</span>
+              <h3 class="text-xl font-bold font-display uppercase text-white">Scania R</h3>
+              <span class="text-xs text-red-400 font-mono">Frigo & Lourd</span>
             </div>
             <p class="text-xs text-slate-300">
-              Le monstre de puissance de la flotte. Châssis 8x4 / 4 Midlift avec boîte Opticruise et ralentisseur Retarder haute pression.
+              Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois réguliers.
             </p>
+            <div class="p-3 rounded-xl bg-zinc-950/70 border border-zinc-800/80 space-y-1">
+              <span class="text-[10px] uppercase font-mono text-zinc-500 block font-semibold">Chauffeurs attitrés TrucksBook :</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold">👑 n3rox.off (Fondateur)</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇫🇷 Miam50</span>
+              </div>
+            </div>
             <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 3 500 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 8x4 / 4</div>
-              <div><span class="text-zinc-500">Vitesse max :</span> 90 km/h (TMP)</div>
-              <div><span class="text-zinc-500">Équipement :</span> Rampe LED & Klaxon</div>
+              <div><span class="text-zinc-500">Châssis :</span> 4x2 & 6x4</div>
+              <div><span class="text-zinc-500">Moteur :</span> 580 - 730 CH</div>
+              <div><span class="text-zinc-500">Boîte :</span> Opticruise 12+2</div>
+              <div><span class="text-zinc-500">Livrée :</span> Rouge Carmin / Noir</div>
             </div>
           </div>
         </div>
 
-        <!-- Truck 2 -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="lourd">
+        <!-- Truck 2 : Scania S -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group border border-zinc-800/80 hover:border-red-600/50 transition-all" data-category="scania-s">
           <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
             <div class="text-center space-y-2">
               <i data-lucide="shield" class="w-20 h-20 text-slate-200 mx-auto filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Globetrotter XXL</span>
+              <span class="text-xs font-mono uppercase text-slate-300 tracking-widest block font-bold">Scania S Next Generation</span>
+              <span class="text-[10px] text-emerald-400 font-mono block">✓ Télémétrie TrucksBook Live</span>
             </div>
-            <span class="absolute top-4 right-4 bg-zinc-800 text-red-400 border border-red-500/30 text-[11px] font-bold px-2.5 py-1 rounded">750 CH</span>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow">730 CH V8</span>
+            <span class="absolute top-4 left-4 bg-zinc-950/80 border border-red-500/40 text-red-400 text-[10px] font-mono px-2 py-0.5 rounded">3 Chauffeurs</span>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">Volvo FH16 750</h3>
-              <span class="text-xs text-red-400 font-mono">Convois Spéciaux</span>
+              <h3 class="text-xl font-bold font-display uppercase text-white">Scania S</h3>
+              <span class="text-xs text-red-400 font-mono">Porte-Char & Spécial</span>
             </div>
             <p class="text-xs text-slate-300">
-              L'étalon suédois pour les cols alpins et les traversées d'Europe centrale sous météo difficile. Transmission I-Shift avec vitesses rampantes.
+              Le vaisseau amiral nouvelle génération de l'entreprise. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport de bétail.
             </p>
+            <div class="p-3 rounded-xl bg-zinc-950/70 border border-zinc-800/80 space-y-1">
+              <span class="text-[10px] uppercase font-mono text-zinc-500 block font-semibold">Chauffeurs attitrés TrucksBook :</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇫🇷 romuald.lelerre</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇧🇪 B R U X Y</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇫🇷 Zenotoa</span>
+              </div>
+            </div>
             <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 3 550 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 6x4 Taglift</div>
-              <div><span class="text-zinc-500">Cabine :</span> Globetrotter XL</div>
-              <div><span class="text-zinc-500">Suspension :</span> Intégrale air</div>
+              <div><span class="text-zinc-500">Châssis :</span> 6x2 / 8x4</div>
+              <div><span class="text-zinc-500">Moteur :</span> 650 - 730 CH</div>
+              <div><span class="text-zinc-500">Ralentisseur :</span> Retarder Haute Pr.</div>
+              <div><span class="text-zinc-500">Livrée :</span> Rouge Carmin / Noir</div>
             </div>
           </div>
         </div>
 
-        <!-- Truck 3 -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="frigo">
+        <!-- Truck 3 : Volvo FH4 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group border border-zinc-800/80 hover:border-red-600/50 transition-all" data-category="volvo-fh4">
           <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
             <div class="text-center space-y-2">
               <i data-lucide="gauge" class="w-20 h-20 text-red-500 mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Efficience & Ligne</span>
+              <span class="text-xs font-mono uppercase text-slate-300 tracking-widest block font-bold">Volvo FH4 Globetrotter XL</span>
+              <span class="text-[10px] text-emerald-400 font-mono block">✓ Télémétrie TrucksBook Live</span>
             </div>
-            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">530 CH</span>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow">750 CH</span>
+            <span class="absolute top-4 left-4 bg-zinc-950/80 border border-red-500/40 text-red-400 text-[10px] font-mono px-2 py-0.5 rounded">1 Chauffeur</span>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">DAF XG+ 530</h3>
-              <span class="text-xs text-red-400 font-mono">Frigo Express</span>
+              <h3 class="text-xl font-bold font-display uppercase text-white">Volvo FH4</h3>
+              <span class="text-xs text-red-400 font-mono">Plateau & Fret</span>
             </div>
             <p class="text-xs text-slate-300">
-              Confort 5 étoiles pour les chauffeurs au long cours. Rétroviseurs caméras numériques haute définition et aérodynamisme optimisé.
+              L'étalon suédois de haute technologie, dédié aux convois sur plateau et au fret volumineux. Transmission I-Shift avec vitesses rampantes.
             </p>
+            <div class="p-3 rounded-xl bg-zinc-950/70 border border-zinc-800/80 space-y-1">
+              <span class="text-[10px] uppercase font-mono text-zinc-500 block font-semibold">Chauffeur attitré TrucksBook :</span>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇫🇷 Sora658</span>
+              </div>
+            </div>
             <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 2 600 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 4x2 Low-Deck</div>
-              <div><span class="text-zinc-500">Volume :</span> Cabine ultra-large</div>
-              <div><span class="text-zinc-500">Consommation :</span> 28L / 100km</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Truck 4 -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="plateau">
-          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
-            <div class="text-center space-y-2">
-              <i data-lucide="box" class="w-20 h-20 text-slate-200 mx-auto filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition GigaSpace Plateau</span>
-            </div>
-            <span class="absolute top-4 right-4 bg-zinc-800 text-red-400 border border-red-500/30 text-[11px] font-bold px-2.5 py-1 rounded">630 CH</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">Mercedes Actros</h3>
-              <span class="text-xs text-red-400 font-mono">Plateau Acier</span>
-            </div>
-            <p class="text-xs text-slate-300">
-              Régularité et fiabilité allemande pour les trajets métallurgiques de la Ruhr et de la Scandinavie. Tableau de bord double écran numérique.
-            </p>
-            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 3 000 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 6x2/4 Steer</div>
-              <div><span class="text-zinc-500">Système :</span> MirrorCam 2.0</div>
-              <div><span class="text-zinc-500">Freinage :</span> Active Brake 5</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Truck 5 -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="frigo">
-          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
-            <div class="text-center space-y-2">
-              <i data-lucide="navigation" class="w-20 h-20 text-red-500 mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition T High Sleeper</span>
-            </div>
-            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">520 CH</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">Renault T High</h3>
-              <span class="text-xs text-red-400 font-mono">Messagerie & Frigo</span>
-            </div>
-            <p class="text-xs text-slate-300">
-              Le fleuron français pour nos routes nationales et autoroutes du sud. Poste de pilotage ergonomique et signature lumineuse avant agressive.
-            </p>
-            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 2 550 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 4x2 Sleeper</div>
-              <div><span class="text-zinc-500">Moteur :</span> D13 Turbo Compound</div>
-              <div><span class="text-zinc-500">Radio CB :</span> Intégrée</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Truck 6 -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="lourd">
-          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
-            <div class="text-center space-y-2">
-              <i data-lucide="award" class="w-20 h-20 text-slate-200 mx-auto filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Individual Lion</span>
-            </div>
-            <span class="absolute top-4 right-4 bg-zinc-800 text-red-400 border border-red-500/30 text-[11px] font-bold px-2.5 py-1 rounded">640 CH</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">MAN TGX GX</h3>
-              <span class="text-xs text-red-400 font-mono">Porte-Char</span>
-            </div>
-            <p class="text-xs text-slate-300">
-              Robuste et inébranlable. Parfait pour les liaisons de nuit en convoi serré et le franchissement des routes sinueuses des Balkans.
-            </p>
-            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 3 000 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 6x4 Heavy Duty</div>
-              <div><span class="text-zinc-500">Son moteur :</span> V8 rugissant</div>
-              <div><span class="text-zinc-500">Éclairage :</span> Full LED Dark</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Truck 7: Benne Chantier -->
-        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="benne">
-          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
-            <div class="text-center space-y-2">
-              <span class="text-5xl block">🚚</span>
-              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Benne Chantiers TP</span>
-            </div>
-            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">580 CH</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-xl font-bold font-display uppercase text-white">Scania XT G580</h3>
-              <span class="text-xs text-red-400 font-mono">Benne Vrac</span>
-            </div>
-            <p class="text-xs text-slate-300">
-              Conçu pour affronter les carrières, pistes de sable et décharges de gravats. Pare-chocs acier renforcé et motricité tout-terrain.
-            </p>
-            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-              <div><span class="text-zinc-500">Couple :</span> 2 950 Nm</div>
-              <div><span class="text-zinc-500">Châssis :</span> 8x4 / 4 XT</div>
-              <div><span class="text-zinc-500">Benne :</span> Acier Hardox 28m³</div>
-              <div><span class="text-zinc-500">Usage :</span> Gravats, sable, terre</div>
+              <div><span class="text-zinc-500">Châssis :</span> 6x4 Taglift</div>
+              <div><span class="text-zinc-500">Moteur :</span> 540 - 750 CH</div>
+              <div><span class="text-zinc-500">Boîte :</span> I-Shift Dual Clutch</div>
+              <div><span class="text-zinc-500">Livrée :</span> Rouge Carmin / Noir</div>
             </div>
           </div>
         </div>
@@ -636,12 +561,20 @@
       <!-- Key Statistics Counters (Données réelles synchronisées) -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
         
-        <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
-          <i data-lucide="map-pin" class="w-8 h-8 text-red-500 mx-auto"></i>
+        <div class="card-glossy p-6 rounded-2xl text-center space-y-2 border border-red-900/30">
+          <i data-lucide="gauge" class="w-8 h-8 text-red-500 mx-auto"></i>
           <div class="text-3xl sm:text-4xl font-black font-display text-white">
-            <span id="stat-total-km" class="counter-val" data-target="17206">17 206</span>
+            <span id="stat-month-km" class="counter-val" data-target="2275">2 275</span> <span class="text-base text-red-500">km</span>
           </div>
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Kilomètres Parcourus</p>
+          <p class="text-xs uppercase tracking-wider text-red-300 font-bold font-mono">Km Mensuels (Ce Mois-ci)</p>
+        </div>
+
+        <div class="card-glossy p-6 rounded-2xl text-center space-y-2 border border-emerald-900/30">
+          <i data-lucide="package-check" class="w-8 h-8 text-emerald-400 mx-auto"></i>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white">
+            <span id="stat-month-deliveries" class="counter-val" data-target="3">3</span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-emerald-300 font-bold font-mono">Missions Réussies ce Mois</p>
         </div>
 
         <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
@@ -649,53 +582,41 @@
           <div class="text-3xl sm:text-4xl font-black font-display text-white">
             <span id="stat-total-drivers" class="counter-val" data-target="6">6</span>
           </div>
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Chauffeurs Enregistrés</p>
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold font-mono">Chauffeurs Enregistrés</p>
         </div>
 
         <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
-          <i data-lucide="package-check" class="w-8 h-8 text-red-500 mx-auto"></i>
+          <i data-lucide="map-pin" class="w-8 h-8 text-slate-300 mx-auto"></i>
           <div class="text-3xl sm:text-4xl font-black font-display text-white">
-            <span id="stat-total-deliveries" class="counter-val" data-target="24">24</span>
+            <span id="stat-total-km" class="counter-val" data-target="17206">17 206</span>
           </div>
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Missions Réussies</p>
-        </div>
-
-        <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
-          <i data-lucide="percent" class="w-8 h-8 text-red-500 mx-auto"></i>
-          <div class="text-3xl sm:text-4xl font-black font-display text-white">
-            <span>99.4</span>%
-          </div>
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Livraisons Sans Dégâts</p>
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold font-mono">Km Totaux de l'Entreprise</p>
         </div>
 
       </div>
 
-      <!-- Driver Hall of Fame Table -->
-      <div class="card-glossy rounded-3xl p-6 sm:p-8">
+      <!-- Driver Hall of Fame Table (Strictement Mensuel) -->
+      <div class="card-glossy rounded-3xl p-6 sm:p-8 border border-zinc-800/80">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6">
           <div>
             <div class="flex items-center gap-2 mb-1">
-              <span id="ranking-period-badge" class="px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-800/40 text-[10px] font-mono uppercase font-bold tracking-wider">
-                Classement Général (Tout le temps)
+              <span id="ranking-period-badge" class="px-2.5 py-0.5 rounded bg-red-950 text-red-300 border border-red-800/40 text-[10px] font-mono uppercase font-bold tracking-wider flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Classement Mensuel Officiel
               </span>
               <span class="text-xs text-zinc-500">•</span>
               <span class="text-xs text-zinc-400 font-mono">Entreprise #231468</span>
             </div>
             <h3 class="text-xl sm:text-2xl font-bold font-display uppercase text-white">
-              Classement des Chauffeurs <span class="text-red-500">TrucksBook</span>
+              Classement Mensuel des Chauffeurs <span class="text-red-500">TrucksBook</span>
             </h3>
-            <p class="text-xs text-slate-400">Kilomètres, missions et camions réels synchronisés en direct depuis la télémétrie TrucksBook.</p>
+            <p class="text-xs text-slate-400">Classement officiel calculé exclusivement sur la performance mensuelle (Mois en cours) selon la télémétrie TrucksBook.</p>
           </div>
           
           <div class="flex flex-wrap items-center gap-2">
-            <!-- Période : Tout le temps vs Mensuel -->
-            <div class="bg-zinc-900/90 border border-zinc-800 p-1 rounded-xl flex items-center gap-1">
-              <button type="button" id="btn-period-all" class="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white transition-all">
-                🏆 Tout le temps
-              </button>
-              <button type="button" id="btn-period-month" class="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-all">
-                📅 Mensuel
-              </button>
+            <!-- Période strictly mensuelle affichée -->
+            <div class="bg-red-950/70 border border-red-800/50 px-3.5 py-2 rounded-xl text-xs font-mono font-bold text-red-300 flex items-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-red-400"></i>
+              <span>Mois en cours (Novembre 2026)</span>
             </div>
 
             <a href="https://trucksbook.eu/company/231468" target="_blank" rel="noopener noreferrer" class="btn-metallic text-xs font-bold uppercase tracking-wider py-2 px-3.5">
@@ -712,9 +633,9 @@
                 <th class="py-3 px-4">Chauffeur</th>
                 <th class="py-3 px-4">Camion (TrucksBook)</th>
                 <th class="py-3 px-4">Domaine d'Activité</th>
-                <th class="py-3 px-4 text-right">Km Parcourus</th>
-                <th class="py-3 px-4 text-right">Missions</th>
-                <th class="py-3 px-4 text-right">Fret Fréquent</th>
+                <th class="py-3 px-4 text-right text-red-400 font-bold">Km ce Mois</th>
+                <th class="py-3 px-4 text-right text-emerald-400 font-bold">Missions ce Mois</th>
+                <th class="py-3 px-4 text-right text-slate-400">Total Carrière</th>
               </tr>
             </thead>
             <tbody id="drivers-table-body" class="divide-y divide-zinc-800/60 font-mono text-xs">

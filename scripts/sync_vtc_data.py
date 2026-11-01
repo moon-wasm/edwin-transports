@@ -281,41 +281,6 @@ def sync():
             "is_official_driver_truck": True
         })
 
-    # 4. Gestion des convois avec RETRAIT DES CONVOIS PASSÉS
-    all_convoys = [
-        {
-            "id": "convoy-alpes-2026",
-            "title": "La Traversée des Alpes : Munich → Innsbruck → Venise",
-            "departure": "Munich (Carrière)",
-            "destination": "Venise (Port)",
-            "date_iso": "2026-11-07T21:00:00+01:00",
-            "date_label": "Samedi 7 Novembre 2026 - 21h00",
-            "meetup_time": "20h30",
-            "departure_time": "21h00 Précises",
-            "server": "Simulation 1",
-            "cb_channel": "Canal 19",
-            "recommended_trailer": "Porte-Char, Benne ou Frigo",
-            "attendees_count": 42
-        },
-        {
-            "id": "convoy-scandinavie-2026",
-            "title": "Grand Fret Scandinave : Oslo → Göteborg → Copenhague",
-            "departure": "Oslo (Zone Industrielle)",
-            "destination": "Copenhague (Terminal)",
-            "date_iso": "2026-11-14T21:00:00+01:00",
-            "date_label": "Samedi 14 Novembre 2026 - 21h00",
-            "meetup_time": "20h30",
-            "departure_time": "21h00 Précises",
-            "server": "Simulation 1",
-            "cb_channel": "Canal 19",
-            "recommended_trailer": "Plateau & Benne TP",
-            "attendees_count": 35
-        }
-    ]
-
-    now_iso = now.isoformat()
-    upcoming_convoys = [c for c in all_convoys if c["date_iso"] >= now_iso]
-
     payload = {
         "updated_at": now.strftime("%Y-%m-%d %H:%M:%S"),
         "sync_interval_seconds": 3600,
@@ -334,8 +299,7 @@ def sync():
             "founder": employees[0]["name"] if employees else "n3rox.off"
         },
         "fleet": fleet,
-        "drivers": employees,
-        "upcoming_convoys": upcoming_convoys
+        "drivers": employees
     }
 
     with open(DATA_FILE, "w", encoding="utf-8") as f:

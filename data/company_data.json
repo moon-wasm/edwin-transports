@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01 17:35:38",
+  "updated_at": "2026-11-01 17:45:17",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 2275,
-    "total_deliveries_month": 3,
+    "total_km_month": 2730,
+    "total_deliveries_month": 4,
     "total_drivers": 6,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -31,7 +31,7 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Polyvalent / Longue Distance",
+        "Porte-Char & Convois Lourds",
         "Transport Frigorifique"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
@@ -62,8 +62,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Transport Frigorifique",
-        "Bétail & Marchandises Spéciales"
+        "Bétail & Marchandises Spéciales",
+        "Transport Frigorifique"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -99,8 +99,8 @@
         "transmission": "I-Shift Dual Clutch",
         "specialty": "Plateau & Convois Européens"
       },
-      "total_km": 48311,
-      "total_km_month": 601,
+      "total_km": 48766,
+      "total_km_month": 1056,
       "is_official_driver_truck": true
     }
   ],
@@ -133,7 +133,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Polyvalent / Longue Distance",
+      "pole": "Porte-Char & Convois Lourds",
       "is_owner": false,
       "km": 16111,
       "deliveries": 20,
@@ -141,7 +141,7 @@
       "deliveries_all": 20,
       "km_month": 0,
       "deliveries_month": 0,
-      "frequent_cargo": "Logs",
+      "frequent_cargo": "Granite Cubes",
       "score": "99.1%",
       "last_online": "2026-10-31T19:46:04+01:00"
     },
@@ -183,7 +183,7 @@
       "deliveries_month": 0,
       "frequent_cargo": "Cut Flowers",
       "score": "99.3%",
-      "last_online": "2026-11-01T17:35:31+01:00"
+      "last_online": "2026-11-01T17:45:16+01:00"
     },
     {
       "id": 604587,
@@ -215,45 +215,15 @@
       "truck_source": "TrucksBook Live Telemetry",
       "pole": "Transport sur Plateau",
       "is_owner": false,
-      "km": 48311,
-      "deliveries": 148,
-      "km_all": 48311,
-      "deliveries_all": 148,
-      "km_month": 601,
-      "deliveries_month": 2,
+      "km": 48766,
+      "deliveries": 149,
+      "km_all": 48766,
+      "deliveries_all": 149,
+      "km_month": 1056,
+      "deliveries_month": 3,
       "frequent_cargo": "Used Plastics",
       "score": "99.5%",
-      "last_online": "2026-11-01T17:35:17+01:00"
-    }
-  ],
-  "upcoming_convoys": [
-    {
-      "id": "convoy-alpes-2026",
-      "title": "La Traversée des Alpes : Munich → Innsbruck → Venise",
-      "departure": "Munich (Carrière)",
-      "destination": "Venise (Port)",
-      "date_iso": "2026-11-07T21:00:00+01:00",
-      "date_label": "Samedi 7 Novembre 2026 - 21h00",
-      "meetup_time": "20h30",
-      "departure_time": "21h00 Précises",
-      "server": "Simulation 1",
-      "cb_channel": "Canal 19",
-      "recommended_trailer": "Porte-Char, Benne ou Frigo",
-      "attendees_count": 42
-    },
-    {
-      "id": "convoy-scandinavie-2026",
-      "title": "Grand Fret Scandinave : Oslo → Göteborg → Copenhague",
-      "departure": "Oslo (Zone Industrielle)",
-      "destination": "Copenhague (Terminal)",
-      "date_iso": "2026-11-14T21:00:00+01:00",
-      "date_label": "Samedi 14 Novembre 2026 - 21h00",
-      "meetup_time": "20h30",
-      "departure_time": "21h00 Précises",
-      "server": "Simulation 1",
-      "cb_channel": "Canal 19",
-      "recommended_trailer": "Plateau & Benne TP",
-      "attendees_count": 35
+      "last_online": "2026-11-01T17:45:02+01:00"
     }
   ]
 }

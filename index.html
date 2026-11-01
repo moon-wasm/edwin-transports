@@ -89,7 +89,6 @@
           <a href="#accueil" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Accueil</a>
           <a href="#specialites" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Pôles</a>
           <a href="#flotte" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Flotte</a>
-          <a href="#convois" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Convois</a>
           <a href="#statistiques" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Stats</a>
           <a href="#galerie" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Galerie</a>
         </div>
@@ -126,7 +125,6 @@
       <a href="#accueil" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Accueil</a>
       <a href="#specialites" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Nos Spécialités</a>
       <a href="#flotte" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Notre Flotte</a>
-      <a href="#convois" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Convois & Événements</a>
       <a href="#statistiques" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Statistiques & Pilotes</a>
       <a href="#galerie" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Galerie Photos</a>
       <div class="pt-4 border-t border-zinc-800 flex flex-col gap-3">
@@ -527,33 +525,6 @@
     </div>
   </section>
 
-  <!-- ==================== CALENDRIER CONVOIS & ÉVÉNEMENTS ==================== -->
-  <section id="convois" class="py-24 bg-zinc-950 border-t border-zinc-900 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <div class="flex items-center justify-center gap-2">
-          <div class="et-badge">TruckersMP Multijoueur</div>
-          <div id="sync-status-badge" class="et-badge bg-emerald-950/40 text-emerald-300 border-emerald-500/40">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Synchronisation Auto 1h
-          </div>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-wide">
-          Prochains Convois & Événements Officiels
-        </h2>
-        <p class="text-slate-400 text-sm sm:text-base">
-          Nos convois sont synchronisés en temps réel. Tout convoi dont la date est dépassée est automatiquement retiré.
-        </p>
-      </div>
-
-      <!-- Convoys dynamic container (auto-retire les convois passés) -->
-      <div id="convoys-container">
-        <!-- Rendered dynamically by loadLiveVTCData() -->
-      </div>
-
-    </div>
-  </section>
-
   <!-- ==================== STATISTIQUES & CLASSEMENT CHAUFFEURS ==================== -->
   <section id="statistiques" class="py-24 relative ambient-radial-glow border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -788,7 +759,6 @@
           <li><a href="#accueil" class="hover:text-red-400 transition-colors">Accueil</a></li>
           <li><a href="#specialites" class="hover:text-red-400 transition-colors">Nos 4 Domaines</a></li>
           <li><a href="#flotte" class="hover:text-red-400 transition-colors">Notre Flotte</a></li>
-          <li><a href="#convois" class="hover:text-red-400 transition-colors">Convois & Événements</a></li>
           <li><a href="#statistiques" class="hover:text-red-400 transition-colors">Statistiques & Pilotes</a></li>
         </ul>
       </div>

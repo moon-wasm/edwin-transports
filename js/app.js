@@ -246,12 +246,15 @@ function renderRealFleet(fleet) {
         : `<span class="px-2 py-0.5 rounded bg-zinc-800 text-slate-200 text-xs font-mono font-bold">🇫🇷 ${escapeHTML(dr)}</span>`;
     }).join(' ');
 
-    const iconType = item.model.includes('Volvo') ? 'gauge' : (item.model.includes('S') ? 'shield' : 'truck');
+    const isVolvo = item.model.includes('Volvo');
+    const logoSrc = isVolvo ? 'assets/logos/volvo.svg' : 'assets/logos/scania.svg';
+    const logoAlt = isVolvo ? 'Logo Volvo' : 'Logo Scania';
+    const shadowColor = isVolvo ? 'rgba(255,255,255,0.4)' : 'rgba(229,9,20,0.6)';
 
     card.innerHTML = `
       <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
-        <div class="text-center space-y-2">
-          <i data-lucide="${iconType}" class="w-20 h-20 ${item.model.includes('S') ? 'text-slate-200' : 'text-red-500'} mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
+        <div class="text-center space-y-3 flex flex-col items-center">
+          <img src="${logoSrc}" alt="${logoAlt}" class="h-16 w-auto max-w-[130px] object-contain filter drop-shadow-[0_0_18px_${shadowColor}]">
           <span class="text-xs font-mono uppercase text-slate-300 tracking-widest block font-bold">${escapeHTML(item.title)}</span>
           <span class="text-[10px] text-emerald-400 font-mono block">✓ Télémétrie TrucksBook Live</span>
         </div>
@@ -271,12 +274,6 @@ function renderRealFleet(fleet) {
           <div class="flex flex-wrap gap-1.5 pt-1">
             ${driversBadges}
           </div>
-        </div>
-        <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
-          <div><span class="text-zinc-500">Châssis :</span> ${escapeHTML(item.specs.chassis || 'Standard')}</div>
-          <div><span class="text-zinc-500">Puissance :</span> ${escapeHTML(item.specs.power || '730 CH')}</div>
-          <div><span class="text-zinc-500">Boîte :</span> ${escapeHTML(item.specs.transmission || 'Automatique')}</div>
-          <div><span class="text-zinc-500">Livrée :</span> Rouge Carmin / Noir</div>
         </div>
       </div>
     `;

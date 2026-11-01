@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDWIN TRANSPORTS | VTC Euro Truck Simulator 2 & TruckersMP</title>
+  <meta name="description" content="Site officiel de la VTC Edwin Transports sur Euro Truck Simulator 2. Spécialiste Porte-Char, Plateau, Frigo et Convois Exceptionnels en Europe.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#e50914',
+              redLight: '#ff2e3f',
+              redDark: '#99000a',
+              dark: '#08090d',
+              card: '#12141c',
+              border: 'rgba(255, 255, 255, 0.08)',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            display: ['Rajdhani', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cyber-grid text-slate-200 antialiased selection:bg-red-600 selection:text-white">
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="bg-gradient-to-r from-red-950 via-red-900 to-black border-b border-red-700/30 text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-red-600/40 text-red-300 font-semibold text-[11px] animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span> EN DIRECT
+        </span>
+        <span class="text-slate-300 font-medium">Prochain Convoi TruckersMP : Samedi 21h00 (Simulation 1)</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <span class="flex items-center gap-1.5"><i data-lucide="radio" class="w-3.5 h-3.5 text-red-500"></i> CB Radio : Canal 19</span>
+        <span class="hidden md:inline-block text-slate-600">|</span>
+        <a href="https://trucksbook.eu/company/231468" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-1.5 hover:text-red-400 transition-colors">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-red-500"></i> TrucksBook #231468
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/85 border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Brand Name -->
+        <a href="#accueil" class="flex items-center gap-3 group">
+          <div class="relative w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-red-600 via-neutral-300 to-red-800 shadow-[0_0_20px_rgba(229,9,20,0.6)] group-hover:scale-105 transition-transform">
+            <img src="assets/logo.png" alt="Edwin Transports Logo" class="w-full h-full object-contain rounded-full bg-black">
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display text-2xl font-black tracking-wider text-white uppercase group-hover:text-red-500 transition-colors">EDWIN</span>
+              <span class="font-display text-2xl font-bold tracking-wider red-gradient-text uppercase">TRANSPORTS</span>
+            </div>
+            <p class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Votre transport, notre engagement.</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#accueil" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Accueil</a>
+          <a href="#specialites" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Pôles</a>
+          <a href="#flotte" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Flotte</a>
+          <a href="#convois" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Convois</a>
+          <a href="#statistiques" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Stats</a>
+          <a href="#galerie" class="text-sm font-semibold text-slate-300 hover:text-red-500 transition-colors uppercase tracking-wider">Galerie</a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <!-- Web Audio Air Horn Trigger -->
+          <button type="button" class="btn-horn-sound p-2.5 rounded-lg bg-zinc-900 border border-zinc-700/80 hover:border-red-500/60 text-slate-300 hover:text-red-400 transition-all title='Klaxon TruckersMP'" title="Faire retentir la trompe pneumatique">
+            <i data-lucide="volume-2" class="w-5 h-5 text-red-500"></i>
+          </button>
+
+          <!-- Recruitment CTA -->
+          <button type="button" class="btn-open-recruitment btn-red-primary text-sm font-bold uppercase tracking-wider">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            Postuler
+          </button>
+        </div>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <div class="lg:hidden flex items-center gap-2">
+          <button type="button" class="btn-horn-sound p-2 rounded bg-zinc-900 border border-zinc-800 text-red-500">
+            <i data-lucide="volume-2" class="w-5 h-5"></i>
+          </button>
+          <button id="mobile-menu-toggle" type="button" class="p-2 text-slate-400 hover:text-white focus:outline-none">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-zinc-950/95 border-b border-red-900/30 px-6 py-6 space-y-4">
+      <a href="#accueil" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Accueil</a>
+      <a href="#specialites" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Nos Spécialités</a>
+      <a href="#flotte" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Notre Flotte</a>
+      <a href="#convois" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Convois & Événements</a>
+      <a href="#statistiques" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Statistiques & Pilotes</a>
+      <a href="#galerie" class="mobile-nav-link block text-base font-semibold text-slate-300 hover:text-red-500">Galerie Photos</a>
+      <div class="pt-4 border-t border-zinc-800 flex flex-col gap-3">
+        <button type="button" class="btn-open-recruitment btn-red-primary w-full text-center">
+          <i data-lucide="user-plus" class="w-4 h-4"></i> Postuler comme Chauffeur
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <header id="accueil" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden ambient-radial-glow py-16 px-4">
+    <!-- Animated background compass star (echoing the crest logo) -->
+    <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-[0.06] pointer-events-none animate-spin-slow">
+      <svg viewBox="0 0 500 500" fill="none" class="w-full h-full text-white">
+        <polygon points="250,20 280,200 480,250 280,300 250,480 220,300 20,250 220,200" stroke="currentColor" stroke-width="4" fill="rgba(229,9,20,0.1)"/>
+        <circle cx="250" cy="250" r="180" stroke="currentColor" stroke-width="3" stroke-dasharray="10 10"/>
+        <circle cx="250" cy="250" r="230" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Catchphrase & CTAs -->
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+          <span class="et-badge">
+            <i data-lucide="shield" class="w-3.5 h-3.5 text-red-500"></i> VTC Officielle ETS2 & TruckersMP
+          </span>
+          <span class="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-700/80 text-xs font-mono text-zinc-300">
+            COMMUNAUTÉ FRANCOPHONE
+          </span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-black font-display tracking-tight text-white uppercase leading-none">
+          L'Élite de la Route <br>
+          <span class="red-gradient-text">Edwin Transports</span>
+        </h1>
+
+        <p class="text-lg text-red-400 font-display font-bold uppercase tracking-wider">
+          « Votre transport, notre engagement. »
+        </p>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-medium leading-relaxed mx-auto lg:mx-0">
+          Société spécialisée dans le transport routier de marchandises et de matériels sur Euro Truck Simulator 2 & TruckersMP. Notre activité repose sur quatre domaines d'excellence pour répondre à tous les besoins logistiques.
+        </p>
+
+        <!-- Logo specialties tags (4 pôles) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-lg mx-auto lg:mx-0 pt-2">
+          <div class="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-center">
+            <span class="text-xs font-bold uppercase text-red-400 block">🚜 Porte-Char</span>
+            <span class="text-[10px] text-slate-400">Engins & Matériels</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-center">
+            <span class="text-xs font-bold uppercase text-red-400 block">🚛 Plateau</span>
+            <span class="text-[10px] text-slate-400">Fret & Équipements</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-center">
+            <span class="text-xs font-bold uppercase text-red-400 block">❄️ Frigo</span>
+            <span class="text-[10px] text-slate-400">Temp. Contrôlée</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-center">
+            <span class="text-xs font-bold uppercase text-red-400 block">🚚 Benne</span>
+            <span class="text-[10px] text-slate-400">Vrac & Chantiers</span>
+          </div>
+        </div>
+
+        <!-- Buttons & Audio blast -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          <button type="button" class="btn-open-recruitment btn-red-primary">
+            <i data-lucide="truck" class="w-5 h-5"></i>
+            Rejoindre la Compagnie
+          </button>
+          
+          <a href="https://discord.gg/cUuRqxmy6" target="_blank" rel="noopener noreferrer" class="btn-metallic">
+            <i data-lucide="message-square" class="w-5 h-5 text-indigo-400"></i>
+            Serveur Discord
+          </a>
+
+          <button type="button" class="btn-horn-sound p-3 rounded-lg bg-zinc-900/90 border border-red-900/50 hover:border-red-500 text-red-400 hover:text-white transition-all shadow-[0_0_15px_rgba(229,9,20,0.2)]" title="Tester le klaxon américain">
+            <i data-lucide="volume-2" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Quick Proof Points -->
+        <div class="pt-6 border-t border-zinc-800/80 flex items-center justify-center lg:justify-start gap-8 text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-red-500"></i>
+            <span>Sans obligation d'heures</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-red-500"></i>
+            <span>Flotte personnalisée</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-red-500"></i>
+            <span>Événements chaque semaine</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Massive Logo Emblem with 3D Cyber Frame -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative group">
+          <!-- Background pulsing neon aura -->
+          <div class="absolute -inset-4 bg-gradient-to-tr from-red-600 to-red-950 rounded-full blur-2xl opacity-40 group-hover:opacity-75 transition duration-1000 animate-pulse"></div>
+
+          <!-- Rotating outer compass ring -->
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full p-2 bg-gradient-to-b from-zinc-700 via-zinc-900 to-black border-2 border-red-600/60 shadow-2xl flex items-center justify-center">
+            
+            <!-- Concentric rings -->
+            <div class="w-full h-full rounded-full border border-dashed border-red-500/40 p-4 flex items-center justify-center">
+              <img src="assets/logo.png" alt="Insigne Officiel Edwin Transports" class="w-full h-full object-contain rounded-full logo-glow filter drop-shadow-[0_0_25px_rgba(229,9,20,0.6)]">
+            </div>
+
+            <!-- Floating floating status badge -->
+            <div class="absolute -bottom-3 bg-zinc-950 border border-red-500/70 rounded-full px-4 py-1.5 shadow-lg flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+              <span class="text-xs font-mono font-bold tracking-wide text-white">RECRUTEMENT OUVERT</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== SPÉCIALITÉS & PÔLES DE TRANSPORT ==================== -->
+  <section id="specialites" class="py-24 bg-zinc-950/80 border-t border-zinc-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="et-badge mx-auto">Expertise & Domaines d'Activité</div>
+        <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-wide">
+          Nos 4 Domaines Principaux de Transport
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <strong class="text-white">Edwin Transports</strong> est une société spécialisée dans le <span class="text-red-400 font-semibold">transport routier de marchandises et de matériels</span>. Notre activité repose sur quatre domaines principaux afin de répondre aux différents besoins de transport :
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Pôle 1: Porte-Char -->
+        <div class="card-glossy p-6 sm:p-7 rounded-2xl flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-13 h-13 w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-950 flex items-center justify-center shadow-[0_0_20px_rgba(229,9,20,0.4)] group-hover:scale-110 transition-transform">
+              <span class="text-2xl">🚜</span>
+            </div>
+            <h3 class="text-xl font-display font-bold uppercase text-white tracking-wide group-hover:text-red-400 transition-colors">
+              Transport Porte-Char
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Transport d’engins, de véhicules et de matériels nécessitant des équipements adaptés et une prise en charge spécifique.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 pt-2 border-t border-white/5">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Engins de chantier lourds</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Châssis surbaissés multi-essieux</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Escorte de sécurité pilote</li>
+            </ul>
+          </div>
+          <div class="pt-5 border-t border-white/5 mt-5 flex justify-between items-center text-[11px] font-mono text-red-400">
+            <span>Matériels Spécifiques</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Pôle 2: Plateau -->
+        <div class="card-glossy p-6 sm:p-7 rounded-2xl flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-950 flex items-center justify-center shadow-[0_0_20px_rgba(229,9,20,0.4)] group-hover:scale-110 transition-transform">
+              <span class="text-2xl">🚛</span>
+            </div>
+            <h3 class="text-xl font-display font-bold uppercase text-white tracking-wide group-hover:text-red-400 transition-colors">
+              Transport sur Plateau
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Acheminement de marchandises, matériels et équipements nécessitant un transport sur plateau.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 pt-2 border-t border-white/5">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Poutrelles, grumes & structures</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Remorques ouvertes & arrimage</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Logistique industrielle globale</li>
+            </ul>
+          </div>
+          <div class="pt-5 border-t border-white/5 mt-5 flex justify-between items-center text-[11px] font-mono text-red-400">
+            <span>Fret & Équipements</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Pôle 3: Frigorifique -->
+        <div class="card-glossy p-6 sm:p-7 rounded-2xl flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-950 flex items-center justify-center shadow-[0_0_20px_rgba(229,9,20,0.4)] group-hover:scale-110 transition-transform">
+              <span class="text-2xl">❄️</span>
+            </div>
+            <h3 class="text-xl font-display font-bold uppercase text-white tracking-wide group-hover:text-red-400 transition-colors">
+              Transport Frigorifique
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Transport de marchandises sous température contrôlée, avec une attention particulière portée au respect des conditions de conservation et de la chaîne du froid.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 pt-2 border-t border-white/5">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Respect strict chaîne du froid</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Denrées fraîches & surgelées</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Lignes directes express</li>
+            </ul>
+          </div>
+          <div class="pt-5 border-t border-white/5 mt-5 flex justify-between items-center text-[11px] font-mono text-red-400">
+            <span>Température Contrôlée</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Pôle 4: Benne -->
+        <div class="card-glossy p-6 sm:p-7 rounded-2xl flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-950 flex items-center justify-center shadow-[0_0_20px_rgba(229,9,20,0.4)] group-hover:scale-110 transition-transform">
+              <span class="text-2xl">🚚</span>
+            </div>
+            <h3 class="text-xl font-display font-bold uppercase text-white tracking-wide group-hover:text-red-400 transition-colors">
+              Transport de Benne
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Transport de matériaux en vrac tels que gravats, sable, terre, enrobés ou tout autre matériau, grâce à nos bennes adaptées à vos chantiers et à vos besoins spécifiques.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-400 pt-2 border-t border-white/5">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Bennes travaux publics TP</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Sable, gravats, terre, enrobés</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-red-500"></i> Desserte chantiers & carrières</li>
+            </ul>
+          </div>
+          <div class="pt-5 border-t border-white/5 mt-5 flex justify-between items-center text-[11px] font-mono text-red-400">
+            <span>Matériaux en Vrac</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOTRE FLOTTE DE CAMIONS ==================== -->
+  <section id="flotte" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div>
+          <div class="et-badge mb-2">Matériel Roulant</div>
+          <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-wide">
+            La Flotte Officielle <span class="text-red-500">Edwin</span>
+          </h2>
+          <p class="text-slate-400 text-sm">Chaque tracteur arbore la livrée officielle Noir Profond & Rouge Carmin.</p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white border border-red-500 transition-all" data-filter="all">Tous</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="lourd">Porte-Char</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="plateau">Plateau</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="frigo">Frigo</button>
+          <button type="button" class="fleet-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition-all" data-filter="benne">Benne TP</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Truck 1 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="lourd">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <!-- Truck SVG Badge Art -->
+            <div class="text-center space-y-2">
+              <i data-lucide="truck" class="w-20 h-20 text-red-500 mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Convoi Lourd</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">730 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">Scania S 730 V8</h3>
+              <span class="text-xs text-red-400 font-mono">Porte-Char</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              Le monstre de puissance de la flotte. Châssis 8x4 / 4 Midlift avec boîte Opticruise et ralentisseur Retarder haute pression.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 3 500 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 8x4 / 4</div>
+              <div><span class="text-zinc-500">Vitesse max :</span> 90 km/h (TMP)</div>
+              <div><span class="text-zinc-500">Équipement :</span> Rampe LED & Klaxon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck 2 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="lourd">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <div class="text-center space-y-2">
+              <i data-lucide="shield" class="w-20 h-20 text-slate-200 mx-auto filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Globetrotter XXL</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-zinc-800 text-red-400 border border-red-500/30 text-[11px] font-bold px-2.5 py-1 rounded">750 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">Volvo FH16 750</h3>
+              <span class="text-xs text-red-400 font-mono">Convois Spéciaux</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              L'étalon suédois pour les cols alpins et les traversées d'Europe centrale sous météo difficile. Transmission I-Shift avec vitesses rampantes.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 3 550 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 6x4 Taglift</div>
+              <div><span class="text-zinc-500">Cabine :</span> Globetrotter XL</div>
+              <div><span class="text-zinc-500">Suspension :</span> Intégrale air</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck 3 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="frigo">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <div class="text-center space-y-2">
+              <i data-lucide="gauge" class="w-20 h-20 text-red-500 mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Efficience & Ligne</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">530 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">DAF XG+ 530</h3>
+              <span class="text-xs text-red-400 font-mono">Frigo Express</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              Confort 5 étoiles pour les chauffeurs au long cours. Rétroviseurs caméras numériques haute définition et aérodynamisme optimisé.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 2 600 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 4x2 Low-Deck</div>
+              <div><span class="text-zinc-500">Volume :</span> Cabine ultra-large</div>
+              <div><span class="text-zinc-500">Consommation :</span> 28L / 100km</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck 4 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="plateau">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <div class="text-center space-y-2">
+              <i data-lucide="box" class="w-20 h-20 text-slate-200 mx-auto filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition GigaSpace Plateau</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-zinc-800 text-red-400 border border-red-500/30 text-[11px] font-bold px-2.5 py-1 rounded">630 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">Mercedes Actros</h3>
+              <span class="text-xs text-red-400 font-mono">Plateau Acier</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              Régularité et fiabilité allemande pour les trajets métallurgiques de la Ruhr et de la Scandinavie. Tableau de bord double écran numérique.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 3 000 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 6x2/4 Steer</div>
+              <div><span class="text-zinc-500">Système :</span> MirrorCam 2.0</div>
+              <div><span class="text-zinc-500">Freinage :</span> Active Brake 5</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck 5 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="frigo">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <div class="text-center space-y-2">
+              <i data-lucide="navigation" class="w-20 h-20 text-red-500 mx-auto filter drop-shadow-[0_0_15px_rgba(229,9,20,0.5)]"></i>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition T High Sleeper</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">520 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">Renault T High</h3>
+              <span class="text-xs text-red-400 font-mono">Messagerie & Frigo</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              Le fleuron français pour nos routes nationales et autoroutes du sud. Poste de pilotage ergonomique et signature lumineuse avant agressive.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 2 550 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 4x2 Sleeper</div>
+              <div><span class="text-zinc-500">Moteur :</span> D13 Turbo Compound</div>
+              <div><span class="text-zinc-500">Radio CB :</span> Intégrée</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck 6 -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="lourd">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <div class="text-center space-y-2">
+              <i data-lucide="award" class="w-20 h-20 text-slate-200 mx-auto filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Individual Lion</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-zinc-800 text-red-400 border border-red-500/30 text-[11px] font-bold px-2.5 py-1 rounded">640 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">MAN TGX GX</h3>
+              <span class="text-xs text-red-400 font-mono">Porte-Char</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              Robuste et inébranlable. Parfait pour les liaisons de nuit en convoi serré et le franchissement des routes sinueuses des Balkans.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 3 000 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 6x4 Heavy Duty</div>
+              <div><span class="text-zinc-500">Son moteur :</span> V8 rugissant</div>
+              <div><span class="text-zinc-500">Éclairage :</span> Full LED Dark</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck 7: Benne Chantier -->
+        <div class="fleet-card card-glossy rounded-2xl overflow-hidden group" data-category="benne">
+          <div class="h-52 bg-gradient-to-t from-black via-zinc-900 to-zinc-800 relative flex items-center justify-center p-6 border-b border-zinc-800">
+            <div class="text-center space-y-2">
+              <span class="text-5xl block">🚚</span>
+              <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Édition Benne Chantiers TP</span>
+            </div>
+            <span class="absolute top-4 right-4 bg-red-600/90 text-white text-[11px] font-bold px-2.5 py-1 rounded">580 CH</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold font-display uppercase text-white">Scania XT G580</h3>
+              <span class="text-xs text-red-400 font-mono">Benne Vrac</span>
+            </div>
+            <p class="text-xs text-slate-300">
+              Conçu pour affronter les carrières, pistes de sable et décharges de gravats. Pare-chocs acier renforcé et motricité tout-terrain.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400 pt-2 border-t border-zinc-800">
+              <div><span class="text-zinc-500">Couple :</span> 2 950 Nm</div>
+              <div><span class="text-zinc-500">Châssis :</span> 8x4 / 4 XT</div>
+              <div><span class="text-zinc-500">Benne :</span> Acier Hardox 28m³</div>
+              <div><span class="text-zinc-500">Usage :</span> Gravats, sable, terre</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Livery paint job guidelines callout -->
+      <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-red-950/60 via-zinc-900 to-black border border-red-800/40 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-red-600/20 border border-red-500/50 flex items-center justify-center text-red-500 flex-shrink-0">
+            <i data-lucide="palette" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-base">Code Peinture Officiel Edwin Transports</h4>
+            <p class="text-slate-400 text-xs">RGB Primaire : (14, 15, 20) Noir Onyx | RGB Accent : (229, 9, 20) Rouge Carmin | Dégradé Métallique</p>
+          </div>
+        </div>
+        <button type="button" class="btn-open-recruitment btn-metallic text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+          Télécharger le guide de peinture
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CALENDRIER CONVOIS & ÉVÉNEMENTS ==================== -->
+  <section id="convois" class="py-24 bg-zinc-950 border-t border-zinc-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="flex items-center justify-center gap-2">
+          <div class="et-badge">TruckersMP Multijoueur</div>
+          <div id="sync-status-badge" class="et-badge bg-emerald-950/40 text-emerald-300 border-emerald-500/40">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Synchronisation Auto 1h
+          </div>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-wide">
+          Prochains Convois & Événements Officiels
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Nos convois sont synchronisés en temps réel. Tout convoi dont la date est dépassée est automatiquement retiré.
+        </p>
+      </div>
+
+      <!-- Convoys dynamic container (auto-retire les convois passés) -->
+      <div id="convoys-container">
+        <!-- Rendered dynamically by loadLiveVTCData() -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== STATISTIQUES & CLASSEMENT CHAUFFEURS ==================== -->
+  <section id="statistiques" class="py-24 relative ambient-radial-glow border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Key Statistics Counters (Données réelles synchronisées) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        
+        <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
+          <i data-lucide="map-pin" class="w-8 h-8 text-red-500 mx-auto"></i>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white">
+            <span id="stat-total-km" class="counter-val" data-target="17206">17 206</span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Kilomètres Parcourus</p>
+        </div>
+
+        <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
+          <i data-lucide="users" class="w-8 h-8 text-red-500 mx-auto"></i>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white">
+            <span id="stat-total-drivers" class="counter-val" data-target="6">6</span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Chauffeurs Enregistrés</p>
+        </div>
+
+        <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
+          <i data-lucide="package-check" class="w-8 h-8 text-red-500 mx-auto"></i>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white">
+            <span id="stat-total-deliveries" class="counter-val" data-target="24">24</span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Missions Réussies</p>
+        </div>
+
+        <div class="card-glossy p-6 rounded-2xl text-center space-y-2">
+          <i data-lucide="percent" class="w-8 h-8 text-red-500 mx-auto"></i>
+          <div class="text-3xl sm:text-4xl font-black font-display text-white">
+            <span>99.4</span>%
+          </div>
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Livraisons Sans Dégâts</p>
+        </div>
+
+      </div>
+
+      <!-- Driver Hall of Fame Table -->
+      <div class="card-glossy rounded-3xl p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold font-display uppercase text-white">
+              Classement Mensuel des Chauffeurs <span class="text-red-500">TrucksBook</span>
+            </h3>
+            <p class="text-xs text-slate-400">Mise à jour automatique en temps réel via l'API télémétrie ETS2.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="https://trucksbook.eu/company/231468" target="_blank" rel="noopener noreferrer" class="btn-metallic text-xs font-bold uppercase tracking-wider py-2 px-3.5">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-red-500"></i> TrucksBook #231468
+            </a>
+            <span class="px-3 py-1 rounded bg-zinc-900 border border-zinc-700 text-xs font-mono text-zinc-300">
+              Saison 2026
+            </span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="text-xs uppercase font-mono text-slate-400 border-b border-zinc-800">
+              <tr>
+                <th class="py-3 px-4">Rang</th>
+                <th class="py-3 px-4">Chauffeur</th>
+                <th class="py-3 px-4">Camion (TrucksBook)</th>
+                <th class="py-3 px-4">Domaine d'Activité</th>
+                <th class="py-3 px-4 text-right">Km Parcourus</th>
+                <th class="py-3 px-4 text-right">Missions</th>
+                <th class="py-3 px-4 text-right">Fret Fréquent</th>
+              </tr>
+            </thead>
+            <tbody id="drivers-table-body" class="divide-y divide-zinc-800/60 font-mono text-xs">
+              <!-- Dynamically populated by loadLiveVTCData() via company_data.json -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== GALERIE ETS2 ==================== -->
+  <section id="galerie" class="py-24 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="et-badge mx-auto">Moments Forts</div>
+        <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white tracking-wide">
+          Galerie des Convois & Événements
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Des milliers de kilomètres partagés entre passionnés d'Euro Truck Simulator 2 sur TruckersMP.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Gallery Card 1 -->
+        <div class="group relative rounded-2xl overflow-hidden card-glossy h-64 cursor-pointer gallery-thumb" data-full="assets/logo.png" data-title="Insigne officiel Edwin Transports">
+          <div class="w-full h-full bg-gradient-to-br from-zinc-800 via-zinc-900 to-black flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/logo.png" alt="Edwin Transports Crest" class="w-36 h-36 object-contain filter drop-shadow-[0_0_20px_rgba(229,9,20,0.6)]">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-xs font-mono text-red-400 uppercase tracking-widest block">Insigne Officiel</span>
+            <h4 class="text-white font-bold text-base font-display">Edwin Transports - Logo Officiel</h4>
+          </div>
+        </div>
+
+        <!-- Gallery Card 2: Convoi de nuit -->
+        <div class="group relative rounded-2xl overflow-hidden card-glossy h-64 cursor-pointer gallery-thumb" data-full="assets/logo.png" data-title="Convoi de Nuit - Traversée de la Forêt Noire">
+          <div class="w-full h-full bg-gradient-to-br from-red-950 via-zinc-950 to-black flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
+            <div class="text-center space-y-2">
+              <i data-lucide="moon" class="w-16 h-16 text-red-400 mx-auto"></i>
+              <span class="text-xs font-mono text-slate-400 block">Convoi Nocturne 25 Camions</span>
+            </div>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-xs font-mono text-red-400 uppercase tracking-widest block">Allemagne</span>
+            <h4 class="text-white font-bold text-base font-display">Convoi Nocturne - Forêt Noire</h4>
+          </div>
+        </div>
+
+        <!-- Gallery Card 3: Porte-Char Spécial -->
+        <div class="group relative rounded-2xl overflow-hidden card-glossy h-64 cursor-pointer gallery-thumb" data-full="assets/logo.png" data-title="Convoi Exceptionnel - Transport de Pelleteuse 65T">
+          <div class="w-full h-full bg-gradient-to-br from-zinc-900 via-neutral-900 to-black flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
+            <div class="text-center space-y-2">
+              <i data-lucide="shield-alert" class="w-16 h-16 text-amber-500 mx-auto"></i>
+              <span class="text-xs font-mono text-slate-400 block">Convoi Hors Gabarit 65 Tonnes</span>
+            </div>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-xs font-mono text-red-400 uppercase tracking-widest block">Scandinavie</span>
+            <h4 class="text-white font-bold text-base font-display">Mission Exceptionnelle Fjord</h4>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== BANNIÈRE RECRUTEMENT / CTA ==================== -->
+  <section class="py-20 relative overflow-hidden bg-gradient-to-r from-red-950 via-zinc-950 to-black border-y border-red-800/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+      
+      <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-red-600 to-white shadow-[0_0_30px_rgba(229,9,20,0.6)]">
+        <img src="assets/logo.png" alt="Edwin Transports" class="w-full h-full object-contain rounded-full bg-black">
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase tracking-widest text-red-400 font-bold">EDWIN TRANSPORTS</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-display text-white uppercase tracking-tight">
+          Envie de nous rejoindre ?
+        </h2>
+        <p class="text-base text-red-400 font-display font-bold uppercase tracking-wider">
+          « Votre transport, notre engagement. »
+        </p>
+      </div>
+
+      <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+        Vous souhaitez intégrer une entreprise ambitieuse, professionnelle et passionnée par le transport ? <br class="hidden sm:inline">
+        <strong class="text-white">N’attendez plus et rejoignez dès maintenant Edwin Transports.</strong>
+      </p>
+
+      <p class="text-slate-400 text-sm font-medium">
+        🔗 Rejoignez-nous et prenez la route à nos côtés !
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <button type="button" class="btn-open-recruitment btn-red-primary text-base px-8 py-4">
+          <i data-lucide="user-check" class="w-5 h-5"></i>
+          Postuler chez Edwin Transports
+        </button>
+
+        <a href="https://trucksbook.eu/company/231468" target="_blank" rel="noopener noreferrer" class="btn-metallic text-base px-8 py-4">
+          <i data-lucide="file-spreadsheet" class="w-5 h-5 text-red-500"></i>
+          Page TrucksBook #231468
+        </a>
+
+        <a href="https://discord.gg/cUuRqxmy6" target="_blank" rel="noopener noreferrer" class="btn-metallic text-base px-8 py-4">
+          <i data-lucide="message-square" class="w-5 h-5 text-indigo-400"></i>
+          Serveur Discord
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-black border-t border-zinc-900 py-16 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      
+      <!-- Brand column -->
+      <div class="space-y-4 md:col-span-2">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="Logo Edwin Transports" class="w-12 h-12 object-contain rounded-full">
+          <div>
+            <span class="font-display text-xl font-black tracking-wider text-white uppercase">EDWIN</span>
+            <span class="font-display text-xl font-bold tracking-wider text-red-500 uppercase">TRANSPORTS</span>
+            <p class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">« Votre transport, notre engagement. »</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+          Société spécialisée dans le transport routier de marchandises et de matériels sur Euro Truck Simulator 2 & TruckersMP. Porte-Char, Plateau, Frigorifique et Benne.
+        </p>
+        <p class="text-[11px] text-zinc-600">
+          Non affilié commercialement à SCS Software ou TruckersMP. Euro Truck Simulator 2 est une marque déposée de SCS Software.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold uppercase font-display tracking-wider text-sm">Navigation</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#accueil" class="hover:text-red-400 transition-colors">Accueil</a></li>
+          <li><a href="#specialites" class="hover:text-red-400 transition-colors">Nos 4 Domaines</a></li>
+          <li><a href="#flotte" class="hover:text-red-400 transition-colors">Notre Flotte</a></li>
+          <li><a href="#convois" class="hover:text-red-400 transition-colors">Convois & Événements</a></li>
+          <li><a href="#statistiques" class="hover:text-red-400 transition-colors">Statistiques & Pilotes</a></li>
+        </ul>
+      </div>
+
+      <!-- Links & Community -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold uppercase font-display tracking-wider text-sm">Réseaux & Outils</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="https://discord.gg/cUuRqxmy6" target="_blank" class="hover:text-red-400 transition-colors flex items-center gap-2"><i data-lucide="message-circle" class="w-3.5 h-3.5 text-indigo-400"></i> Serveur Discord</a></li>
+          <li><a href="https://truckersmp.com" target="_blank" class="hover:text-red-400 transition-colors flex items-center gap-2"><i data-lucide="globe" class="w-3.5 h-3.5 text-red-500"></i> Page TruckersMP</a></li>
+          <li><a href="https://trucksbook.eu/company/231468" target="_blank" class="hover:text-red-400 transition-colors flex items-center gap-2"><i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-blue-400"></i> TrucksBook #231468</a></li>
+          <li><a href="https://store.steampowered.com" target="_blank" class="hover:text-red-400 transition-colors flex items-center gap-2"><i data-lucide="gamepad-2" class="w-3.5 h-3.5 text-slate-300"></i> Groupe Steam</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-12 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+      <p>© 2026 Edwin Transports. Tous droits réservés.</p>
+      <p class="font-mono text-[11px]">Conçu pour la communauté Euro Truck Simulator 2</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL DE RECRUTEMENT ==================== -->
+  <div id="recruitment-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
+    <div class="card-glossy w-full max-w-xl rounded-3xl p-6 sm:p-8 border-red-600/50 relative max-h-[90vh] overflow-y-auto">
+      
+      <button type="button" class="btn-close-recruitment absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-6">
+        <img src="assets/logo.png" alt="Edwin Transports" class="w-12 h-12 object-contain rounded-full">
+        <div>
+          <h3 class="text-2xl font-display font-extrabold text-white uppercase">Candidature VTC</h3>
+          <p class="text-xs text-red-400 font-mono">Rejoignez l'équipe Edwin Transports</p>
+        </div>
+      </div>
+
+      <form id="recruitment-form" class="space-y-4 text-xs">
+        <div>
+          <label for="driver-pseudo" class="block font-bold uppercase text-slate-300 mb-1">Pseudo Steam / TruckersMP *</label>
+          <input type="text" id="driver-pseudo" required placeholder="Ex: Alex_Driver92" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-red-500">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="driver-age" class="block font-bold uppercase text-slate-300 mb-1">Âge *</label>
+            <input type="number" id="driver-age" required min="14" max="99" placeholder="Ex: 22" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label for="driver-hours" class="block font-bold uppercase text-slate-300 mb-1">Heures de jeu sur ETS2</label>
+            <input type="number" id="driver-hours" placeholder="Ex: 350h" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-red-500">
+          </div>
+        </div>
+
+        <div>
+          <label for="driver-discord" class="block font-bold uppercase text-slate-300 mb-1">Identifiant Discord (avec micro fonctionnel) *</label>
+          <input type="text" id="driver-discord" required placeholder="Ex: alex_driver#1234" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-red-500">
+        </div>
+
+        <div>
+          <label for="driver-pref" class="block font-bold uppercase text-slate-300 mb-1">Pôle de prédilection *</label>
+          <select id="driver-pref" required class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2.5 text-white focus:outline-none focus:border-red-500">
+            <option value="Porte-Char & Convois Lourds">🚜 Transport Porte-Char & Convois Lourds</option>
+            <option value="Plateau & Fret Industriel">🚛 Transport sur Plateau & Fret Industriel</option>
+            <option value="Frigo & Ligne Express">❄️ Transport Frigorifique</option>
+            <option value="Transport de Benne">🚚 Transport de Benne & Chantiers</option>
+            <option value="Polyvalent (Tous pôles)">⭐ Polyvalent (Tous domaines)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="driver-motivation" class="block font-bold uppercase text-slate-300 mb-1">Quelques mots sur vous / vos motivations</label>
+          <textarea id="driver-motivation" rows="3" placeholder="Pourquoi souhaitez-vous rejoindre Edwin Transports ?" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-red-500"></textarea>
+        </div>
+
+        <div class="flex items-center gap-2 pt-2">
+          <input type="checkbox" id="driver-rules" required class="accent-red-600 rounded">
+          <label for="driver-rules" class="text-[11px] text-slate-400">J'accepte de porter la peinture officielle lors des convois et de respecter le code de la route.</label>
+        </div>
+
+        <div class="pt-4 flex justify-end gap-3">
+          <button type="button" class="btn-close-recruitment btn-metallic text-xs">Annuler</button>
+          <button type="submit" class="btn-red-primary text-xs">Envoyer ma Candidature</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== LIGHTBOX MODAL ==================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex flex-col items-center justify-center p-4">
+    <button id="lightbox-close" type="button" class="absolute top-6 right-6 text-white hover:text-red-500 p-2">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <div class="max-w-4xl w-full flex flex-col items-center">
+      <img id="lightbox-image" src="" alt="Aperçu Galerie" class="lightbox-img rounded-2xl object-contain max-w-full">
+      <p id="lightbox-caption" class="mt-4 text-sm font-display uppercase tracking-widest text-slate-300 text-center"></p>
+    </div>
+  </div>
+
+  <!-- Lucide Icons Initialization -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- Application Script -->
+  <script src="js/app.js"></script>
+</body>
+</html>

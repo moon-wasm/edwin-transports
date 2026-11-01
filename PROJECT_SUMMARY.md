@@ -1,0 +1,32 @@
+# EDWIN TRANSPORTS (VTC ETS2) - Résumé de Projet
+
+## 🎯 Objectif
+Conception et développement d'un site web vitrine et communautaire haut de gamme pour l'entreprise virtuelle de transport (VTC) Euro Truck Simulator 2 **Edwin Transports** (Edouin Transport). Respect strict de la charte graphique du logo officiel (Noir profond, Rouge carmin néon, Chrome/Argent métallique, rose des vents).
+
+## ⚡ Réalisations
+- [assets/logo.png](file:///home/moom/Documents/antigravity/resilient-nobel/assets/logo.png) : Logo officiel importé et optimisé.
+- [index.html](file:///home/moom/Documents/antigravity/resilient-nobel/index.html) : Portail web complet (Hero cinématique, 4 pôles officiels, showcase flotte 7 camions, calendrier convois TruckersMP dynamique, classement TrucksBook et formulaire de recrutement).
+- [css/styles.css](file:///home/moom/Documents/antigravity/resilient-nobel/css/styles.css) : Design système sur-mesure (Glow rouge, chrome métallique, animations boussole/rose des vents, glassmorphism).
+- [js/app.js](file:///home/moom/Documents/antigravity/resilient-nobel/js/app.js) : Interactivité et synchronisation dynamique toutes les 1 heures (chargement des chauffeurs TrucksBook, compteurs km/missions, retrait automatique des convois passés, modale de recrutement, synthe audio klaxon).
+- [scripts/sync_vtc_data.py](file:///home/moom/Documents/antigravity/resilient-nobel/scripts/sync_vtc_data.py) : Script autonome de synchronisation TrucksBook (compagnie #231468) :
+  - **Extraction directe des camions réels de chaque chauffeur** depuis `user-career-stats` (ex: Scania R, Scania S, Volvo FH4), sans attribution artificielle.
+  - Récupération des kilomètres, livraisons et frets fréquents réels de chaque membre.
+  - Purge et retrait automatique des convois expirés.
+- [data/company_data.json](file:///home/moom/Documents/antigravity/resilient-nobel/data/company_data.json) : Données télémétriques 100% réelles issues de TrucksBook (n3rox.off: Scania R, Miam50: Scania R, romuald.lelerre: Scania S, B R U X Y: Scania S, Zenotoa: Scania S, Sora658: Volvo FH4).
+
+## 📍 État actuel
+- **Architecture :** Site web moderne, interactif, responsive mobile/desktop.
+- **Serveur local actif :** Accessible sur `http://127.0.0.1:8080/`.
+- **Automatisation 1 heure :**
+  - Script Python actif et tâche planifiée `schedule` toutes les 1h (`0 * * * *`).
+  - Rafraîchissement automatique dans le navigateur web toutes les 1h (`setInterval(3600000)`).
+  - Retrait automatique des convois TruckersMP dès que leur date est dépassée.
+  - Les camions de chaque chauffeur proviennent à 100% de TrucksBook.
+  - Intégration du Discord officiel : `https://discord.gg/cUuRqxmy6`.
+
+## ⚠️ Décisions & Contraintes
+- Intégration fidèle des descriptions exactes de l'entreprise fournies par le responsable.
+- Lien direct vérifié vers l'entreprise officielle TrucksBook (ID 231468) et Discord officiel.
+
+## 👉 Prochaines étapes
+- Surveillance du cron horaire et ajout de nouveaux convois au calendrier selon planning de l'équipe.

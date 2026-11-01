@@ -12,9 +12,12 @@ Conception et développement d'un site web vitrine et communautaire haut de gamm
   - **Extraction directe des camions réels de chaque chauffeur** depuis `user-career-stats` (ex: Scania R, Scania S, Volvo FH4), sans attribution artificielle.
   - Récupération des kilomètres, livraisons et frets fréquents réels de chaque membre.
   - Purge et retrait automatique des convois expirés.
-- [data/company_data.json](file:///home/moom/Documents/antigravity/resilient-nobel/data/company_data.json) : Données télémétriques 100% réelles issues de TrucksBook (n3rox.off: Scania R, Miam50: Scania R, romuald.lelerre: Scania S, B R U X Y: Scania S, Zenotoa: Scania S, Sora658: Volvo FH4).
+- [data/company_data.json](file:///home/moom/Documents/antigravity/resilient-nobel/data/company_data.json) : Données télémétriques 100% réelles issues de TrucksBook avec double jeu de métriques (Tout le temps et Mensuel).
 
 ## 📍 État actuel
+- **Classement des Chauffeurs :** 
+  - Affichage par défaut sur **🏆 Tout le temps** (Sora658: 48 311 km, B R U X Y: 47 329 km, Miam50: 16 111 km, Zenotoa: 7 449 km, n3rox.off: 5 637 km, romuald.lelerre: 5 221 km).
+  - Bouton interactif pour basculer en **📅 Mensuel** selon besoin.
 - **Dépôt GitHub public :** [https://github.com/moon-wasm/edwin-transports](https://github.com/moon-wasm/edwin-transports)
 - **Déploiement Vercel prêt :** 
   - Fichier `vercel.json` configuré à la racine.

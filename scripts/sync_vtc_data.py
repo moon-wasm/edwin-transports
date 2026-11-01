@@ -39,8 +39,10 @@ def get_truck_and_stats_for_user(user_id):
     """
     truck = "Non renseigné"
     cargo = "Divers"
-    dist = 0
-    deliv = 0
+    dist_all = 0
+    deliv_all = 0
+    dist_month = 0
+    deliv_month = 0
     
     # 1. Camion réel et fret fréquent
     try:
@@ -62,26 +64,45 @@ def get_truck_and_stats_for_user(user_id):
     except Exception as e:
         print(f"Erreur camion pour user {user_id}: {e}")
 
-    # 2. Distance et livraisons réelles du joueur
+    # 2. Distance et livraisons réelles : Tout le temps (All-time)
     try:
-        overview_url = f"https://trucksbook.eu/user-game-overview/{user_id}?game=1&period=all&gameMode=truck"
-        html2 = fetch_url(overview_url)
+        overview_all_url = f"https://trucksbook.eu/user-game-overview/{user_id}?game=1&period=all&gameMode=truck"
+        html_all = fetch_url(overview_all_url)
         
-        m_d = re.search(r"Distance\s*<span[^>]*>\s*([0-9\s]+)\s*km", html2)
+        m_d = re.search(r"Distance\s*<span[^>]*>\s*([0-9\s]+)\s*km", html_all)
         if m_d:
-            dist = int(m_d.group(1).replace(" ", ""))
+            dist_all = int(m_d.group(1).replace(" ", ""))
             
-        m_cnt = re.search(r"Delivery count\s*<span[^>]*>\s*([0-9\s]+)", html2)
+        m_cnt = re.search(r"Delivery count\s*<span[^>]*>\s*([0-9\s]+)", html_all)
         if m_cnt:
-            deliv = int(m_cnt.group(1).replace(" ", ""))
+            deliv_all = int(m_cnt.group(1).replace(" ", ""))
     except Exception as e:
-        print(f"Erreur stats pour user {user_id}: {e}")
+        print(f"Erreur stats all-time pour user {user_id}: {e}")
+
+    # 3. Distance et livraisons réelles : Mensuel (Month)
+    try:
+        overview_month_url = f"https://trucksbook.eu/user-game-overview/{user_id}?game=1&period=month&gameMode=truck"
+        html_month = fetch_url(overview_month_url)
+        
+        m_d_m = re.search(r"Distance\s*<span[^>]*>\s*([0-9\s]+)\s*km", html_month)
+        if m_d_m:
+            dist_month = int(m_d_m.group(1).replace(" ", ""))
+            
+        m_cnt_m = re.search(r"Delivery count\s*<span[^>]*>\s*([0-9\s]+)", html_month)
+        if m_cnt_m:
+            deliv_month = int(m_cnt_m.group(1).replace(" ", ""))
+    except Exception as e:
+        print(f"Erreur stats month pour user {user_id}: {e}")
 
     return {
         "truck": truck,
         "frequent_cargo": cargo,
-        "km": dist,
-        "deliveries": deliv
+        "km_all": dist_all,
+        "deliveries_all": deliv_all,
+        "km_month": dist_month,
+        "deliveries_month": deliv_month,
+        "km": dist_all,
+        "deliveries": deliv_all
     }
 
 def sync():
@@ -130,14 +151,18 @@ def sync():
                 "truck_source": "TrucksBook Live Telemetry",
                 "pole": pole,
                 "is_owner": is_owner,
-                "km": stats["km"],
-                "deliveries": stats["deliveries"],
+                "km": stats["km_all"],
+                "deliveries": stats["deliveries_all"],
+                "km_all": stats["km_all"],
+                "deliveries_all": stats["deliveries_all"],
+                "km_month": stats["km_month"],
+                "deliveries_month": stats["deliveries_month"],
                 "frequent_cargo": stats["frequent_cargo"],
                 "score": "100%" if idx == 0 else f"{99.0 + (idx % 8) * 0.1:.1f}%",
                 "last_online": item.get("lastOnline")
             })
             
-            print(f"  ✓ Chauffeur: {name} (ID: {user_id}) | Camion: {stats['truck']} | Km: {stats['km']} | Missions: {stats['deliveries']}")
+            print(f"  ✓ Chauffeur: {name} | Camion: {stats['truck']} | Tout le temps: {stats['km_all']} km | Ce mois: {stats['km_month']} km")
             time.sleep(0.3)  # Respect de politesse réseau
     except Exception as e:
         print(f"Erreur globale employés: {e}")

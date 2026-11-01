@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRecruitmentModal();
   initConvoyRSVP();
   initLightbox();
+  initRankingPeriodToggle();
   
   // Chargement des données dynamiques (TrucksBook & Convois)
   loadLiveVTCData();
@@ -218,12 +219,46 @@ function animateCounter(element, target) {
   }, 25);
 }
 
-function renderDriversTable(drivers) {
+let currentRankingPeriod = 'all';
+let cachedDriversData = [];
+
+function initRankingPeriodToggle() {
+  const btnAll = document.getElementById('btn-period-all');
+  const btnMonth = document.getElementById('btn-period-month');
+  const periodBadge = document.getElementById('ranking-period-badge');
+
+  if (!btnAll || !btnMonth) return;
+
+  btnAll.addEventListener('click', () => {
+    currentRankingPeriod = 'all';
+    btnAll.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white transition-all';
+    btnMonth.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-all';
+    if (periodBadge) periodBadge.textContent = 'Classement Général (Tout le temps)';
+    renderDriversTable(cachedDriversData, 'all');
+  });
+
+  btnMonth.addEventListener('click', () => {
+    currentRankingPeriod = 'month';
+    btnMonth.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-600 text-white transition-all';
+    btnAll.className = 'px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-all';
+    if (periodBadge) periodBadge.textContent = 'Classement Mensuel (Mois en cours)';
+    renderDriversTable(cachedDriversData, 'month');
+  });
+}
+
+function renderDriversTable(drivers, period = currentRankingPeriod) {
   const tbody = document.getElementById('drivers-table-body');
   if (!tbody || !drivers || !drivers.length) return;
 
-  // Tri par kilomètres réels décroissants
-  const sortedDrivers = [...drivers].sort((a, b) => (b.km || 0) - (a.km || 0));
+  cachedDriversData = drivers;
+  tbody.innerHTML = '';
+
+  // Tri selon la période sélectionnée (Tout le temps vs Mensuel)
+  const sortedDrivers = [...drivers].sort((a, b) => {
+    const kmA = period === 'month' ? (a.km_month ?? a.km ?? 0) : (a.km_all ?? a.km ?? 0);
+    const kmB = period === 'month' ? (b.km_month ?? b.km ?? 0) : (b.km_all ?? b.km ?? 0);
+    return kmB - kmA;
+  });
 
   sortedDrivers.forEach((driver, idx) => {
     const tr = document.createElement('tr');
@@ -239,10 +274,13 @@ function renderDriversTable(drivers) {
       ? '<span class="ml-2 px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold">DIR</span>'
       : '';
 
+    const kmValue = period === 'month' ? (driver.km_month ?? 0) : (driver.km_all ?? driver.km ?? 0);
+    const deliveriesValue = period === 'month' ? (driver.deliveries_month ?? 0) : (driver.deliveries_all ?? driver.deliveries ?? 0);
+
     tr.innerHTML = `
       <td class="py-4 px-4 font-bold ${idx === 0 ? 'text-amber-400' : 'text-slate-300'}">${rankBadge}</td>
       <td class="py-4 px-4 font-bold text-white flex items-center gap-2 font-sans">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="w-2 h-2 rounded-full ${kmValue > 0 ? 'bg-emerald-500' : 'bg-zinc-500'}"></span>
         <span>${flag} ${escapeHTML(driver.name)}</span>
         ${roleBadge}
       </td>
@@ -258,8 +296,8 @@ function renderDriversTable(drivers) {
           ${escapeHTML(driver.pole || 'Transport')}
         </span>
       </td>
-      <td class="py-4 px-4 text-right font-bold text-white text-sm">${(driver.km || 0).toLocaleString('fr-FR')} km</td>
-      <td class="py-4 px-4 text-right text-emerald-400 font-bold">${driver.deliveries || 0} missions</td>
+      <td class="py-4 px-4 text-right font-bold text-white text-sm">${kmValue.toLocaleString('fr-FR')} km</td>
+      <td class="py-4 px-4 text-right text-emerald-400 font-bold">${deliveriesValue} missions</td>
       <td class="py-4 px-4 text-right text-slate-400 font-mono text-[11px]">${escapeHTML(driver.frequent_cargo || 'Fret')}</td>
     `;
     tbody.appendChild(tr);

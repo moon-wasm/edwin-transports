@@ -15,14 +15,11 @@ Conception et développement d'un site web vitrine et communautaire haut de gamm
 - [data/company_data.json](file:///home/moom/Documents/antigravity/resilient-nobel/data/company_data.json) : Données télémétriques 100% réelles issues de TrucksBook (n3rox.off: Scania R, Miam50: Scania R, romuald.lelerre: Scania S, B R U X Y: Scania S, Zenotoa: Scania S, Sora658: Volvo FH4).
 
 ## 📍 État actuel
-- **Architecture :** Site web moderne, interactif, responsive mobile/desktop.
+- **Dépôt GitHub public :** [https://github.com/moon-wasm/edwin-transports](https://github.com/moon-wasm/edwin-transports)
+- **Déploiement Vercel prêt :** 
+  - Fichier `vercel.json` configuré à la racine.
+  - Workflow GitHub Actions (`.github/workflows/hourly-sync.yml`) pour exécuter la synchronisation TrucksBook toutes les heures et actualiser le site Vercel automatiquement.
 - **Serveur local actif :** Accessible sur `http://127.0.0.1:8080/`.
-- **Automatisation 1 heure :**
-  - Script Python actif et tâche planifiée `schedule` toutes les 1h (`0 * * * *`).
-  - Rafraîchissement automatique dans le navigateur web toutes les 1h (`setInterval(3600000)`).
-  - Retrait automatique des convois TruckersMP dès que leur date est dépassée.
-  - Les camions de chaque chauffeur proviennent à 100% de TrucksBook.
-  - Intégration du Discord officiel : `https://discord.gg/cUuRqxmy6`.
 
 ## ⚠️ Décisions & Contraintes
 - Intégration fidèle des descriptions exactes de l'entreprise fournies par le responsable.

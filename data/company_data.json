@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02 07:00:16",
+  "updated_at": "2026-11-02 17:37:51",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,8 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Porte-Char & Convois Lourds",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Porte-Char & Convois Lourds"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -121,7 +121,7 @@
       "deliveries_all": 8,
       "km_month": 1674,
       "deliveries_month": 1,
-      "frequent_cargo": "Yoghurt",
+      "frequent_cargo": "Pears",
       "score": "100%",
       "last_online": "2026-11-01T01:34:03+01:00"
     },
@@ -183,7 +183,7 @@
       "deliveries_month": 0,
       "frequent_cargo": "Cut Flowers",
       "score": "99.3%",
-      "last_online": "2026-11-01T21:59:14+01:00"
+      "last_online": "2026-11-02T18:37:09+01:00"
     },
     {
       "id": 604587,
@@ -223,7 +223,7 @@
       "deliveries_month": 4,
       "frequent_cargo": "Used Plastics",
       "score": "99.5%",
-      "last_online": "2026-11-01T22:17:30+01:00"
+      "last_online": "2026-11-02T18:37:09+01:00"
     }
   ]
 }

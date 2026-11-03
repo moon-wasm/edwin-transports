@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02 17:37:51",
+  "updated_at": "2026-11-03 00:14:33",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 2900,
-    "total_deliveries_month": 5,
+    "total_km_month": 3363,
+    "total_deliveries_month": 6,
     "total_drivers": 6,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -41,8 +41,8 @@
         "transmission": "Opticruise 12+2",
         "specialty": "Frigo & Fret Express"
       },
-      "total_km": 21748,
-      "total_km_month": 1674,
+      "total_km": 22211,
+      "total_km_month": 2137,
       "is_official_driver_truck": true
     },
     {
@@ -62,8 +62,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Bétail & Marchandises Spéciales",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -115,15 +115,15 @@
       "truck_source": "TrucksBook Live Telemetry",
       "pole": "Transport Frigorifique",
       "is_owner": true,
-      "km": 5637,
-      "deliveries": 8,
-      "km_all": 5637,
-      "deliveries_all": 8,
-      "km_month": 1674,
-      "deliveries_month": 1,
+      "km": 6100,
+      "deliveries": 9,
+      "km_all": 6100,
+      "deliveries_all": 9,
+      "km_month": 2137,
+      "deliveries_month": 2,
       "frequent_cargo": "Pears",
       "score": "100%",
-      "last_online": "2026-11-01T01:34:03+01:00"
+      "last_online": "2026-11-03T01:14:07+01:00"
     },
     {
       "id": 543513,
@@ -183,7 +183,7 @@
       "deliveries_month": 0,
       "frequent_cargo": "Cut Flowers",
       "score": "99.3%",
-      "last_online": "2026-11-02T18:37:09+01:00"
+      "last_online": "2026-11-02T23:22:16+01:00"
     },
     {
       "id": 604587,
@@ -223,7 +223,7 @@
       "deliveries_month": 4,
       "frequent_cargo": "Used Plastics",
       "score": "99.5%",
-      "last_online": "2026-11-02T18:37:09+01:00"
+      "last_online": "2026-11-02T22:20:58+01:00"
     }
   ]
 }

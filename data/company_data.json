@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04 16:42:55",
+  "updated_at": "2026-11-04 22:18:13",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,9 +9,9 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 4099,
-    "total_deliveries_month": 7,
-    "total_drivers": 6,
+    "total_km_month": 2137,
+    "total_deliveries_month": 2,
+    "total_drivers": 5,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
   },
@@ -31,7 +31,7 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Porte-Char & Convois Lourds",
+        "Polyvalent / Longue Distance",
         "Transport Frigorifique"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
@@ -75,33 +75,6 @@
       "total_km": 59999,
       "total_km_month": 0,
       "is_official_driver_truck": true
-    },
-    {
-      "model": "Volvo FH4",
-      "title": "Volvo FH4 Globetrotter XL",
-      "category": "plateau",
-      "categories": [
-        "plateau",
-        "lourd"
-      ],
-      "badge": "750 CH",
-      "drivers": [
-        "Sora658"
-      ],
-      "drivers_count": 1,
-      "poles": [
-        "Transport sur Plateau"
-      ],
-      "description": "L'étalon suédois de haute technologie, dédié aux convois sur plateau et au fret volumineux. Transmission I-Shift avec vitesses rampantes.",
-      "specs": {
-        "chassis": "6x4 Taglift",
-        "power": "540 - 750 CH",
-        "transmission": "I-Shift Dual Clutch",
-        "specialty": "Plateau & Convois Européens"
-      },
-      "total_km": 49672,
-      "total_km_month": 1962,
-      "is_official_driver_truck": true
     }
   ],
   "drivers": [
@@ -123,7 +96,7 @@
       "deliveries_month": 2,
       "frequent_cargo": "Pears",
       "score": "100%",
-      "last_online": "2026-11-04T17:42:35+01:00"
+      "last_online": "2026-11-04T23:18:03+01:00"
     },
     {
       "id": 543513,
@@ -133,7 +106,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Porte-Char & Convois Lourds",
+      "pole": "Polyvalent / Longue Distance",
       "is_owner": false,
       "km": 16111,
       "deliveries": 20,
@@ -141,7 +114,7 @@
       "deliveries_all": 20,
       "km_month": 0,
       "deliveries_month": 0,
-      "frequent_cargo": "Granite Cubes",
+      "frequent_cargo": "Logs",
       "score": "99.1%",
       "last_online": "2026-10-31T19:46:04+01:00"
     },
@@ -204,26 +177,6 @@
       "frequent_cargo": "Live Pigs",
       "score": "99.4%",
       "last_online": "2026-11-01T02:11:54+01:00"
-    },
-    {
-      "id": 428615,
-      "name": "Sora658",
-      "role": "Chauffeur Officiel",
-      "country": "fr",
-      "country_name": "France",
-      "truck": "Volvo FH4",
-      "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Transport sur Plateau",
-      "is_owner": false,
-      "km": 49672,
-      "deliveries": 151,
-      "km_all": 49672,
-      "deliveries_all": 151,
-      "km_month": 1962,
-      "deliveries_month": 5,
-      "frequent_cargo": "Used Plastics",
-      "score": "99.5%",
-      "last_online": "2026-11-04T17:42:13+01:00"
     }
   ]
 }

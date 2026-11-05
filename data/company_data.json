@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05 18:24:56",
+  "updated_at": "2026-11-05 23:54:04",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,8 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Transport Frigorifique",
-        "Polyvalent / Longue Distance"
+        "Polyvalent / Longue Distance",
+        "Transport Frigorifique"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -94,9 +94,9 @@
       "deliveries_all": 9,
       "km_month": 2137,
       "deliveries_month": 2,
-      "frequent_cargo": "Yoghurt",
+      "frequent_cargo": "Pears",
       "score": "100%",
-      "last_online": "2026-11-05T19:24:50+01:00"
+      "last_online": "2026-11-06T00:53:42+01:00"
     },
     {
       "id": 543513,

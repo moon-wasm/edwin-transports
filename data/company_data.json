@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06 19:46:15",
+  "updated_at": "2026-11-06 23:53:24",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 2137,
-    "total_deliveries_month": 2,
+    "total_km_month": 5914,
+    "total_deliveries_month": 4,
     "total_drivers": 5,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -41,8 +41,8 @@
         "transmission": "Opticruise 12+2",
         "specialty": "Frigo & Fret Express"
       },
-      "total_km": 22211,
-      "total_km_month": 2137,
+      "total_km": 25988,
+      "total_km_month": 5914,
       "is_official_driver_truck": true
     },
     {
@@ -62,8 +62,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Bétail & Marchandises Spéciales",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -88,15 +88,15 @@
       "truck_source": "TrucksBook Live Telemetry",
       "pole": "Transport Frigorifique",
       "is_owner": true,
-      "km": 6100,
-      "deliveries": 9,
-      "km_all": 6100,
-      "deliveries_all": 9,
-      "km_month": 2137,
-      "deliveries_month": 2,
-      "frequent_cargo": "Pears",
+      "km": 9877,
+      "deliveries": 11,
+      "km_all": 9877,
+      "deliveries_all": 11,
+      "km_month": 5914,
+      "deliveries_month": 4,
+      "frequent_cargo": "Yoghurt",
       "score": "100%",
-      "last_online": "2026-11-06T20:45:38+01:00"
+      "last_online": "2026-11-07T00:52:57+01:00"
     },
     {
       "id": 543513,
@@ -176,7 +176,7 @@
       "deliveries_month": 0,
       "frequent_cargo": "Live Pigs",
       "score": "99.4%",
-      "last_online": "2026-11-01T02:11:54+01:00"
+      "last_online": "2026-11-06T23:16:30+01:00"
     }
   ]
 }

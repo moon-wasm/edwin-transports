@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-07 03:54:52",
+  "updated_at": "2026-11-07 10:49:30",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,8 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Porte-Char & Convois Lourds",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Polyvalent / Longue Distance"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -94,9 +94,9 @@
       "deliveries_all": 11,
       "km_month": 5914,
       "deliveries_month": 4,
-      "frequent_cargo": "Yoghurt",
+      "frequent_cargo": "Pears",
       "score": "100%",
-      "last_online": "2026-11-07T04:54:29+01:00"
+      "last_online": "2026-11-07T11:49:18+01:00"
     },
     {
       "id": 543513,
@@ -106,7 +106,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Porte-Char & Convois Lourds",
+      "pole": "Polyvalent / Longue Distance",
       "is_owner": false,
       "km": 16111,
       "deliveries": 20,
@@ -114,7 +114,7 @@
       "deliveries_all": 20,
       "km_month": 0,
       "deliveries_month": 0,
-      "frequent_cargo": "Granite Cubes",
+      "frequent_cargo": "Logs",
       "score": "99.1%",
       "last_online": "2026-10-31T19:46:04+01:00"
     },

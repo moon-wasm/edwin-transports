@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-07 20:37:04",
+  "updated_at": "2026-11-08 00:06:25",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -96,7 +96,7 @@
       "deliveries_month": 6,
       "frequent_cargo": "Pears",
       "score": "100%",
-      "last_online": "2026-11-07T21:36:31+01:00"
+      "last_online": "2026-11-08T01:06:11+01:00"
     },
     {
       "id": 546129,
@@ -176,7 +176,7 @@
       "deliveries_month": 0,
       "frequent_cargo": "Live Pigs",
       "score": "99.4%",
-      "last_online": "2026-11-07T21:36:52+01:00"
+      "last_online": "2026-11-07T22:25:53+01:00"
     }
   ]
 }

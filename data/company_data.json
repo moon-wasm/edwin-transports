@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09 21:13:59",
+  "updated_at": "2026-11-10 03:54:10",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,7 +31,6 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Transport Frigorifique",
         "Polyvalent / Longue Distance"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
@@ -86,7 +85,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Transport Frigorifique",
+      "pole": "Polyvalent / Longue Distance",
       "is_owner": true,
       "km": 16060,
       "deliveries": 18,
@@ -94,9 +93,9 @@
       "deliveries_all": 18,
       "km_month": 12097,
       "deliveries_month": 11,
-      "frequent_cargo": "Yoghurt",
+      "frequent_cargo": "Excavated Soil",
       "score": "100%",
-      "last_online": "2026-11-09T22:13:46+01:00"
+      "last_online": "2026-11-10T04:53:36+01:00"
     },
     {
       "id": 546129,

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10 03:54:10",
+  "updated_at": "2026-11-10 11:58:29",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 12097,
-    "total_deliveries_month": 11,
+    "total_km_month": 12264,
+    "total_deliveries_month": 12,
     "total_drivers": 5,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -31,7 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Polyvalent / Longue Distance"
+        "Polyvalent / Longue Distance",
+        "Porte-Char & Convois Lourds"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -40,8 +41,8 @@
         "transmission": "Opticruise 12+2",
         "specialty": "Frigo & Fret Express"
       },
-      "total_km": 32171,
-      "total_km_month": 12097,
+      "total_km": 32338,
+      "total_km_month": 12264,
       "is_official_driver_truck": true
     },
     {
@@ -61,8 +62,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Bétail & Marchandises Spéciales",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -87,15 +88,15 @@
       "truck_source": "TrucksBook Live Telemetry",
       "pole": "Polyvalent / Longue Distance",
       "is_owner": true,
-      "km": 16060,
-      "deliveries": 18,
-      "km_all": 16060,
-      "deliveries_all": 18,
-      "km_month": 12097,
-      "deliveries_month": 11,
+      "km": 16227,
+      "deliveries": 19,
+      "km_all": 16227,
+      "deliveries_all": 19,
+      "km_month": 12264,
+      "deliveries_month": 12,
       "frequent_cargo": "Excavated Soil",
       "score": "100%",
-      "last_online": "2026-11-10T04:53:36+01:00"
+      "last_online": "2026-11-10T12:58:22+01:00"
     },
     {
       "id": 546129,
@@ -125,7 +126,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Polyvalent / Longue Distance",
+      "pole": "Porte-Char & Convois Lourds",
       "is_owner": false,
       "km": 16111,
       "deliveries": 20,
@@ -133,7 +134,7 @@
       "deliveries_all": 20,
       "km_month": 0,
       "deliveries_month": 0,
-      "frequent_cargo": "Logs",
+      "frequent_cargo": "Granite Cubes",
       "score": "99.2%",
       "last_online": "2026-11-07T15:25:20+01:00"
     },

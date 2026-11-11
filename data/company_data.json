@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11 00:20:30",
+  "updated_at": "2026-11-11 07:24:07",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,6 +31,7 @@
       ],
       "drivers_count": 2,
       "poles": [
+        "Transport Frigorifique",
         "Polyvalent / Longue Distance"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
@@ -61,8 +62,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Bétail & Marchandises Spéciales",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -85,7 +86,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Polyvalent / Longue Distance",
+      "pole": "Transport Frigorifique",
       "is_owner": true,
       "km": 16227,
       "deliveries": 19,
@@ -93,9 +94,9 @@
       "deliveries_all": 19,
       "km_month": 12264,
       "deliveries_month": 12,
-      "frequent_cargo": "Excavated Soil",
+      "frequent_cargo": "Yoghurt",
       "score": "100%",
-      "last_online": "2026-11-11T01:20:12+01:00"
+      "last_online": "2026-11-11T03:35:55+01:00"
     },
     {
       "id": 546129,

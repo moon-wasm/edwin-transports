@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10 19:25:13",
+  "updated_at": "2026-11-11 00:20:30",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 12264,
-    "total_deliveries_month": 12,
+    "total_km_month": 12731,
+    "total_deliveries_month": 13,
     "total_drivers": 5,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -31,8 +31,7 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Porte-Char & Convois Lourds",
-        "Transport Frigorifique"
+        "Polyvalent / Longue Distance"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -41,8 +40,8 @@
         "transmission": "Opticruise 12+2",
         "specialty": "Frigo & Fret Express"
       },
-      "total_km": 32338,
-      "total_km_month": 12264,
+      "total_km": 32805,
+      "total_km_month": 12731,
       "is_official_driver_truck": true
     },
     {
@@ -86,7 +85,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Transport Frigorifique",
+      "pole": "Polyvalent / Longue Distance",
       "is_owner": true,
       "km": 16227,
       "deliveries": 19,
@@ -94,9 +93,9 @@
       "deliveries_all": 19,
       "km_month": 12264,
       "deliveries_month": 12,
-      "frequent_cargo": "Yoghurt",
+      "frequent_cargo": "Excavated Soil",
       "score": "100%",
-      "last_online": "2026-11-10T20:25:04+01:00"
+      "last_online": "2026-11-11T01:20:12+01:00"
     },
     {
       "id": 546129,
@@ -126,17 +125,17 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Porte-Char & Convois Lourds",
+      "pole": "Polyvalent / Longue Distance",
       "is_owner": false,
-      "km": 16111,
-      "deliveries": 20,
-      "km_all": 16111,
-      "deliveries_all": 20,
-      "km_month": 0,
-      "deliveries_month": 0,
-      "frequent_cargo": "Granite Cubes",
+      "km": 16578,
+      "deliveries": 21,
+      "km_all": 16578,
+      "deliveries_all": 21,
+      "km_month": 467,
+      "deliveries_month": 1,
+      "frequent_cargo": "Logs",
       "score": "99.2%",
-      "last_online": "2026-11-10T20:24:44+01:00"
+      "last_online": "2026-11-10T21:56:29+01:00"
     },
     {
       "id": 615047,

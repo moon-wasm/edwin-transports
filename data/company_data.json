@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12 12:00:24",
+  "updated_at": "2026-11-12 20:34:47",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,7 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Polyvalent / Longue Distance"
+        "Porte-Char & Convois Lourds",
+        "Transport Frigorifique"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -61,8 +62,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Transport Frigorifique",
-        "Bétail & Marchandises Spéciales"
+        "Bétail & Marchandises Spéciales",
+        "Transport Frigorifique"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -85,7 +86,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Polyvalent / Longue Distance",
+      "pole": "Transport Frigorifique",
       "is_owner": true,
       "km": 16227,
       "deliveries": 19,
@@ -93,9 +94,9 @@
       "deliveries_all": 19,
       "km_month": 12264,
       "deliveries_month": 12,
-      "frequent_cargo": "Sand",
+      "frequent_cargo": "Yoghurt",
       "score": "100%",
-      "last_online": "2026-11-12T13:00:19+01:00"
+      "last_online": "2026-11-12T21:34:31+01:00"
     },
     {
       "id": 546129,
@@ -125,7 +126,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Polyvalent / Longue Distance",
+      "pole": "Porte-Char & Convois Lourds",
       "is_owner": false,
       "km": 17433,
       "deliveries": 22,
@@ -133,9 +134,9 @@
       "deliveries_all": 22,
       "km_month": 1322,
       "deliveries_month": 2,
-      "frequent_cargo": "Logs",
+      "frequent_cargo": "Granite Cubes",
       "score": "99.2%",
-      "last_online": "2026-11-11T20:42:52+01:00"
+      "last_online": "2026-11-12T20:46:37+01:00"
     },
     {
       "id": 615047,

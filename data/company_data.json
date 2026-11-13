@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13 01:35:45",
+  "updated_at": "2026-11-13 08:56:05",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -93,9 +93,9 @@
       "deliveries_all": 19,
       "km_month": 12264,
       "deliveries_month": 12,
-      "frequent_cargo": "Barley",
+      "frequent_cargo": "Excavated Soil",
       "score": "100%",
-      "last_online": "2026-11-13T02:35:35+01:00"
+      "last_online": "2026-11-13T09:55:38+01:00"
     },
     {
       "id": 546129,

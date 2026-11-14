@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13 22:19:04",
+  "updated_at": "2026-11-14 02:49:31",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 14464,
-    "total_deliveries_month": 16,
+    "total_km_month": 15341,
+    "total_deliveries_month": 18,
     "total_drivers": 5,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -41,8 +41,8 @@
         "transmission": "Opticruise 12+2",
         "specialty": "Frigo & Fret Express"
       },
-      "total_km": 34538,
-      "total_km_month": 14464,
+      "total_km": 35415,
+      "total_km_month": 15341,
       "is_official_driver_truck": true
     },
     {
@@ -88,15 +88,15 @@
       "truck_source": "TrucksBook Live Telemetry",
       "pole": "Polyvalent / Longue Distance",
       "is_owner": true,
-      "km": 17105,
-      "deliveries": 21,
-      "km_all": 17105,
-      "deliveries_all": 21,
-      "km_month": 13142,
-      "deliveries_month": 14,
-      "frequent_cargo": "Sand",
+      "km": 17982,
+      "deliveries": 23,
+      "km_all": 17982,
+      "deliveries_all": 23,
+      "km_month": 14019,
+      "deliveries_month": 16,
+      "frequent_cargo": "Barley",
       "score": "100%",
-      "last_online": "2026-11-13T23:18:46+01:00"
+      "last_online": "2026-11-14T03:49:31+01:00"
     },
     {
       "id": 546129,

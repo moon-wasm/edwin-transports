@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14 09:40:06",
+  "updated_at": "2026-11-14 16:15:40",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -9,8 +9,8 @@
     "trucksbook_url": "https://trucksbook.eu/company/231468",
     "total_km": 17206,
     "total_deliveries": 24,
-    "total_km_month": 15771,
-    "total_deliveries_month": 19,
+    "total_km_month": 17234,
+    "total_deliveries_month": 22,
     "total_drivers": 5,
     "no_damage_rate": 99.4,
     "founder": "n3rox.off"
@@ -31,7 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Polyvalent / Longue Distance"
+        "Polyvalent / Longue Distance",
+        "Porte-Char & Convois Lourds"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {
@@ -40,8 +41,8 @@
         "transmission": "Opticruise 12+2",
         "specialty": "Frigo & Fret Express"
       },
-      "total_km": 35845,
-      "total_km_month": 15771,
+      "total_km": 37308,
+      "total_km_month": 17234,
       "is_official_driver_truck": true
     },
     {
@@ -87,15 +88,15 @@
       "truck_source": "TrucksBook Live Telemetry",
       "pole": "Polyvalent / Longue Distance",
       "is_owner": true,
-      "km": 18412,
-      "deliveries": 24,
-      "km_all": 18412,
-      "deliveries_all": 24,
-      "km_month": 14449,
-      "deliveries_month": 17,
-      "frequent_cargo": "Excavated Soil",
+      "km": 19875,
+      "deliveries": 27,
+      "km_all": 19875,
+      "deliveries_all": 27,
+      "km_month": 15912,
+      "deliveries_month": 20,
+      "frequent_cargo": "Wood Shavings",
       "score": "100%",
-      "last_online": "2026-11-14T04:07:31+01:00"
+      "last_online": "2026-11-14T16:36:06+01:00"
     },
     {
       "id": 546129,
@@ -125,7 +126,7 @@
       "country_name": "France",
       "truck": "Scania R",
       "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Polyvalent / Longue Distance",
+      "pole": "Porte-Char & Convois Lourds",
       "is_owner": false,
       "km": 17433,
       "deliveries": 22,
@@ -133,9 +134,9 @@
       "deliveries_all": 22,
       "km_month": 1322,
       "deliveries_month": 2,
-      "frequent_cargo": "Logs",
+      "frequent_cargo": "Granite Cubes",
       "score": "99.2%",
-      "last_online": "2026-11-14T10:39:22+01:00"
+      "last_online": "2026-11-14T17:15:03+01:00"
     },
     {
       "id": 615047,

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17 18:55:19",
+  "updated_at": "2026-11-18 01:28:03",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -94,7 +94,7 @@
       "deliveries_all": 27,
       "km_month": 15912,
       "deliveries_month": 20,
-      "frequent_cargo": "Excavated Soil",
+      "frequent_cargo": "Wood Shavings",
       "score": "100%",
       "last_online": "2026-11-14T16:36:06+01:00"
     },

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18 01:28:03",
+  "updated_at": "2026-11-18 09:31:41",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -31,8 +31,8 @@
       ],
       "drivers_count": 2,
       "poles": [
-        "Porte-Char & Convois Lourds",
-        "Polyvalent / Longue Distance"
+        "Polyvalent / Longue Distance",
+        "Porte-Char & Convois Lourds"
       ],
       "description": "Tracteur officiel de la flotte Edwin, piloté en ligne par nos chauffeurs. Configuré pour le transport frigorifique sous température dirigée et les convois lourds.",
       "specs": {

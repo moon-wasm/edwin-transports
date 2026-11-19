@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18 18:31:14",
+  "updated_at": "2026-11-19 00:52:26",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -61,8 +61,8 @@
       ],
       "drivers_count": 3,
       "poles": [
-        "Bétail & Marchandises Spéciales",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {

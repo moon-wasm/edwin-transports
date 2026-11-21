@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20 22:53:31",
+  "updated_at": "2026-11-21 03:39:51",
   "sync_interval_seconds": 3600,
   "company": {
     "id": 231468,
@@ -57,13 +57,13 @@
       "badge": "730 CH V8",
       "drivers": [
         "B R U X Y",
-        "romuald.lelerre",
-        "Zenotoa"
+        "Zenotoa",
+        "romuald.lelerre"
       ],
       "drivers_count": 3,
       "poles": [
-        "Bétail & Marchandises Spéciales",
-        "Transport Frigorifique"
+        "Transport Frigorifique",
+        "Bétail & Marchandises Spéciales"
       ],
       "description": "Le vaisseau amiral Scania nouvelle génération de la compagnie. Grande cabine couchette et couple phénoménal pour les charges industrielles et le transport spécialisé.",
       "specs": {
@@ -94,7 +94,7 @@
       "deliveries_all": 27,
       "km_month": 15912,
       "deliveries_month": 20,
-      "frequent_cargo": "Excavated Soil",
+      "frequent_cargo": "Wood Shavings",
       "score": "100%",
       "last_online": "2026-11-14T16:36:06+01:00"
     },
@@ -119,6 +119,26 @@
       "last_online": "2026-11-13T19:48:16+01:00"
     },
     {
+      "id": 604587,
+      "name": "Zenotoa",
+      "role": "Chauffeur Officiel",
+      "country": "fr",
+      "country_name": "France",
+      "truck": "Scania S",
+      "truck_source": "TrucksBook Live Telemetry",
+      "pole": "Bétail & Marchandises Spéciales",
+      "is_owner": false,
+      "km": 7449,
+      "deliveries": 9,
+      "km_all": 7449,
+      "deliveries_all": 9,
+      "km_month": 0,
+      "deliveries_month": 0,
+      "frequent_cargo": "Live Pigs",
+      "score": "99.2%",
+      "last_online": "2026-11-13T21:48:45+01:00"
+    },
+    {
       "id": 543513,
       "name": "Miam50",
       "role": "Chauffeur Officiel",
@@ -135,7 +155,7 @@
       "km_month": 1322,
       "deliveries_month": 2,
       "frequent_cargo": "Granite Cubes",
-      "score": "99.2%",
+      "score": "99.3%",
       "last_online": "2026-11-15T19:37:02+01:00"
     },
     {
@@ -155,28 +175,8 @@
       "km_month": 0,
       "deliveries_month": 0,
       "frequent_cargo": "Cut Flowers",
-      "score": "99.3%",
-      "last_online": "2026-11-14T22:00:53+01:00"
-    },
-    {
-      "id": 604587,
-      "name": "Zenotoa",
-      "role": "Chauffeur Officiel",
-      "country": "fr",
-      "country_name": "France",
-      "truck": "Scania S",
-      "truck_source": "TrucksBook Live Telemetry",
-      "pole": "Bétail & Marchandises Spéciales",
-      "is_owner": false,
-      "km": 7449,
-      "deliveries": 9,
-      "km_all": 7449,
-      "deliveries_all": 9,
-      "km_month": 0,
-      "deliveries_month": 0,
-      "frequent_cargo": "Live Pigs",
       "score": "99.4%",
-      "last_online": "2026-11-13T21:48:45+01:00"
+      "last_online": "2026-11-14T22:00:53+01:00"
     }
   ]
 }
